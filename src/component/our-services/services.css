@@ -1,0 +1,33 @@
+.our-services{
+    padding: 70px 15px;
+  }
+  .foto-services{
+    width: 80%;
+  }
+  .foto-services img{
+    width: 100%;
+  }
+  .tentang-services{
+    padding-top: 30px;
+  }
+  .tentang-services h2{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    padding-bottom: 20px;
+  }
+  .tentang-services p{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    /* padding-bottom: 20px; */
+  }
+  .tentang-detail{
+    display: flex;
+    align-items: center;
+  }
+  .tentang-detail img{
+    width: 24px;
+    height: 24;
+    margin-right: 10px
+  }

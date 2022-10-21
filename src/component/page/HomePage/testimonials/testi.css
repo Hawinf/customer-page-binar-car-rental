@@ -1,0 +1,35 @@
+.testimoni-section{
+    padding: 2px 0;
+}
+.Judul-testimoni{
+    padding: 20px 0;
+    text-align: center;
+}
+.Judul-testimoni h1{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+.Judul-testimoni p{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+.card {
+    /* width: 619px; */
+    background-color: #f1f3ff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+}
+.card h2{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+.card p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}

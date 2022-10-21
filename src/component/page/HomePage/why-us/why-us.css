@@ -1,0 +1,42 @@
+.why-us1{
+    padding-bottom: 40px;
+  }
+  .why-us1 h2{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .why-us1 p{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .kotak{
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    margin-bottom: 15px;
+  }
+  .kotak img{
+    margin: 24px 0 15px 24px;
+  }
+  .kotak h3{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 24px;
+    padding-bottom: 10px;
+  }
+  .kotak p{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 24px;
+    padding-bottom: 15px;
+  }
+
+  /* breakpoint responsive */
+  @media (max-width:991px) {
+    .why-us1{
+      text-align: center;
+    }
+  }

@@ -1,0 +1,65 @@
+.faq-section{
+    padding: 60px 0;
+}
+.faq-kiri h1{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+.faq-kiri p{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+.faq-kanan-1{
+    margin-bottom: 15px;
+}
+.faq-kanan-1 button{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* bagian accordion */
+.accordion{
+    width: 100%;
+}
+.item{
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    /* height: 56px; */
+    padding: 10px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.title h2{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+}
+.content{
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+.content.show {
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(1,0,1,0);
+}
+.faq-kanan{
+    text-align: left;
+}
+
+@media (max-width:991px) {
+    .faq-section{
+        padding: 30px 0;
+        text-align: center;
+    }
+}

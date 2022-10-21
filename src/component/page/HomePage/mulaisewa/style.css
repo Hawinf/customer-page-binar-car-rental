@@ -1,0 +1,55 @@
+.bigcard{
+    padding: 50px 0;
+}
+.bgcardbg{
+    padding: 50px 0;
+    background-color: #0D28A6;
+    border-radius: 13px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.bgcardbg h2{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.5;
+}
+.bgcardbg p{
+    max-width: 40%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 15px;
+    margin: auto;
+}
+.bgcardbg a{
+    background: #5CB85F;
+    border-radius: 2px;
+    margin-top: 52px;
+}
+@media (max-width:576px) {
+    .bigcard{
+        margin: 0 20px;
+    }
+    .bgcardbg h2{
+        width: 70%;
+        margin: auto;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+    }
+    .bgcardbg p{
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .bgcardbg a{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width:991px) {
+    .bgcardbg p{
+        max-width: 70%;
+    }
+}

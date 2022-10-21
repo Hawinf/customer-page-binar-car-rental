@@ -1,0 +1,9 @@
+.Detail{
+    padding-top: 230px;
+}
+.icon-back{
+    transition: 0.3s;
+}
+.icon-back:hover{
+    stroke: yellow;
+}

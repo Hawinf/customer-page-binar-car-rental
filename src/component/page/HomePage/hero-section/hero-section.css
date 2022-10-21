@@ -1,0 +1,58 @@
+.heroSection{
+    background-color: #f1f3ff;
+    /* height: 45vh; */
+    padding-top: 50px;
+    position: relative;
+    padding-top: 150px;
+  }
+  .hero-teks{
+    padding: 85px 0;
+  }
+  .hero-teks h1{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .hero-teks p{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 14px;
+  }
+  .hero-teks a{
+    background: #5cb85f;
+    border-radius: 2px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 25px;
+    height: 36px;
+  }
+  .hero-foto{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+  }
+  .hero-foto img{
+    width: 100%;
+  }
+
+  /* Breakpoint responsive hero-section */
+  @media (max-width:991px) {
+    .hero-teks{
+      padding: 10px 0 10px 16px;
+    }
+    .hero-foto{
+      position: relative;
+      width: 100%;
+      right: auto;
+      bottom: auto;
+    }
+  }
+  @media (max-width:768px) {
+    .hero-section{
+      padding-top: 90px;
+    }
+  }

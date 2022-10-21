@@ -1,0 +1,86 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "cars": [
+    {
+      "name": "Nissan V90",
+      "category": 4,
+      "price": 7290,
+      "status": true,
+      "start_rent_at": "2048-07-03703:00:07.0692",
+      "finish_rent_at": "2044-09-09T01:43:28.722Z",
+      "image": "http://loremflickr.com/640/480/brazil.rio",
+      "createdAt": "2079-10-07T02:51:07.240Z",
+      "updatedAt": "2066-12-08T00:19:19.123Z",
+      "description": "Minima quisquam vero et.",
+      "id": "3"
+    },
+    {
+      "name": "Ferari",
+      "category": 4,
+      "price": 7290,
+      "status": true,
+      "start_rent_at": "2048-07-03703:00:07.0692",
+      "finish_rent_at": "2044-09-09T01:43:28.722Z",
+      "image": "http://loremflickr.com/640/480/brazil.rio",
+      "createdAt": "2079-10-07T02:51:07.240Z",
+      "updatedAt": "2066-12-08T00:19:19.123Z",
+      "description": "Minima quisquam vero et.",
+      "id": "4"
+    },
+    {
+      "name": "Range Rover",
+      "category": 6,
+      "price": 7290,
+      "status": false,
+      "start_rent_at": "2040-07-03T03:00:07.869Z",
+      "finish_rent_at": "2002-02-26t87:56:36.523Z",
+      "image": "http://loremflicker.com/648/480/brazil.rio",
+      "createdAt": "2097-04-15T17:34:37.2482",
+      "updatedAt": "2019-18-28T13:24:33.1322",
+      "description": "odio",
+      "id": "5"
+    },
+    {
+      "name": "Dodge",
+      "category": 4,
+      "price": 60199,
+      "status": true,
+      "start_rent_at": "2085-09-26T21:11:28.675Z",
+      "finish_rent_at": "2044-09-09T01:43:28.722Z",
+      "image": "http://loremflickr.com/640/480/transport",
+      "createdAt": "2079-10-07T02:51:07.240Z",
+      "updatedAt": "2066-12-08T00:19:19.123Z",
+      "description": "Minima quisquam vero et.",
+      "id": "6"
+    },
+    {
+      "name": "jakaerta",
+      "category": 6,
+      "price": 7290,
+      "status": true,
+      "start_rent_at": "2040-07-03T03:00:07.869Z",
+      "finish_rent_at": "2002-02-26t87:56:36.523Z",
+      "image": "http://loremflicker.com/648/480/?random=1",
+      "createdAt": "2097-04-15T17:34:37.2482",
+      "updatedAt": "2019-18-28T13:24:33.1322",
+      "description": "odio",
+      "id": "6eqgtFJ"
+    }
+  ]
+}

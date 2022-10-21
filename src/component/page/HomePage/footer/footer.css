@@ -1,0 +1,37 @@
+.footer{
+    padding: 50px 0;
+}
+.footer-1{
+    padding-right: 40px;
+}
+.footer-2{
+    padding-left: 70px;
+}
+.footer h5{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+.footer-2 a{
+    display: block;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    color: black;
+}
+.footer-3 img{
+    padding: 20px 5px 0 0;
+}
+.footer-4 img{
+    margin-bottom: 10px;
+}
+@media (max-width:991px) {
+    .footer-3 img{
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .footer-2{
+        padding-left: 0;
+    }
+}
