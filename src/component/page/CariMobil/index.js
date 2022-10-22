@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 // import "react-router-dom/dist/dom";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { queryData } from '../../../helper.js';
+import Filter from '../filter'
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./style.css";
 
@@ -10,6 +12,7 @@ const CariMobil = () => {
   const [inputSample, setInputSample] = useState("");
   // const [profile, setProfile] = useState({});
   const [test, setTest] = useState("test");
+  const [emptyData, setEmptyData] = useState(false)
 
   // const dataCars = [
   //     {
@@ -144,24 +147,57 @@ const CariMobil = () => {
     );
   };
 
-  const namaMobil = useRef();
-  const category = useRef();
-  const harga = useRef();
-  const statusOrder = useRef();
+  const namaMobil = useRef('');
+  const category = useRef('');
+  const harga = useRef('');
+  const statusOrder = useRef('');
+
+  
 
   const getData = (e) => {
     e.preventDefault();
-    console.log("nama", namaMobil.current.value);
-    console.log("kategori", category.current.value);
-    console.log("harga", harga.current.value);
-    console.log("status", statusOrder.current.value);
+    // console.log("nama", namaMobil.current.value);
+    // console.log("kategori", category.current.value);
+    // console.log("harga", harga.current.value);
+    // console.log("status", statusOrder.current.value);
 
-    Axios.get(
-      `${baseUrl}/cars?name=${namaMobil.current.value}&category=${category.current.value}&price=${harga.current.value}&status=${statusOrder.current.value}`
-    )
+    const params = {
+      name: namaMobil.current.value,
+      category: category.current.value,
+      price: harga.current.value,
+      status: statusOrder.current.value
+    }
+
+    // Axios.get(`${baseUrl}/cars?name=${namaMobil.current.value}&category=${category.current.value}&price=${harga.current.value}&status=${statusOrder.current.value}`)
+
+    // const descending = (data) => {
+    //   return data.sort((a, b) => b.id - a.id)
+    // }
+
+    setEmptyData(false)
+    setCars([]); 
+
+    Axios.get(`${baseUrl}/cars?${queryData(params)}`)
+
+
+    // Axios.get(`${baseUrl}/cars?` + 
+    //           `${namaMobil.current.value ? `name=${namaMobil.current.value}`: ""}` 
+    //           + `${category.current.value && `&category=${category.current.value}`}`
+    //           + `${harga.current.value && `&price=${harga.current.value}`}`
+    //           + `${statusOrder.current.value && `&status=${statusOrder.current.value}`}`
+    
+
       .then((response) => {
         if (response) {
+          if(response.data.length > 0){
           console.log(response.data);
+          const descending = response.data.sort((a, b) => b.id - a.id);
+          setCars(descending);
+          
+        } else {
+          setEmptyData(true)
+         
+        }
         }
       })
       .catch((error) => console.log(error));
@@ -170,13 +206,23 @@ const CariMobil = () => {
   const inputSamplePost = useRef();
   const inputSampleEdit = useRef();
   const inputSampleDelete = useRef();
+  // console.log(emptyData)
 
-  
+  const filterData = {
+    getData,
+    namaMobil,
+    category,
+    harga,
+    statusOrder,
+  }
 
   return (
     <div className="carimobil">
       <div className="container">
-        <div className="row">
+        
+      <Filter {...filterData} />
+
+      <div className="row">
           {cars.map((car, index) => {
             return (
               <div className="col-lg-3" key={index}>
@@ -186,7 +232,7 @@ const CariMobil = () => {
                   </div>
                   <div className="card-description">
                     <h3>{car.name}</h3>
-                    <p>Rp. {car.price} / Hari</p>
+                    <p>Rp. {car.price.toLocaleString().replace(/,/g, ".")} / Hari</p>
                     <p>{car.description}</p>
                   </div>
                   <Link
@@ -199,60 +245,10 @@ const CariMobil = () => {
               </div>
             );
           })}
+          {emptyData && <>Data Tidak Ditemukan</>}
         </div>
 
-        <div className="col">
-          <form className="form d-flex" onSubmit={getData}>
-            <div className="d-flex mb-4">
-              <label
-                className="mr-2 d-block"
-                htmlFor=""
-                style={{ marginBottom: 10 }}
-              >
-                Nama Mobil
-              </label>
-              <input type="text" classname="px-2" ref={namaMobil} />
-            </div>
-            <div className="d-flex mb-4">
-              <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
-                Kategory
-              </label>
-              <select ref={category}>
-                <option />
-                <option value="4">2 - 4 Orang</option>
-                <option value="6">4 - 6 Orang</option>
-                <option value="8">6 - 8 Orang</option>
-              </select>
-            </div>
-
-            <div className="d-flex mb-4">
-              <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
-                Harga
-              </label>
-              <select ref={harga}>
-                <option />
-                <option value="400">Rp. 400.000</option>
-                <option value="500">Rp. 500.000</option>
-                <option value="800">Rp. 800.000</option>
-              </select>
-            </div>
-
-            <div className="d-flex mb-4">
-              <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
-                Status
-              </label>
-              <select ref={statusOrder}>
-                <option />
-                <option value="true">Tersedia</option>
-                <option value="false">Disewa</option>
-              </select>
-            </div>
-
-            <button className="btn btn-success" type="submit">
-              Submit
-            </button>
-          </form>
-        </div>
+        
 
         {/* <form className="form d-flex flex-column" onSubmit={submitData}>
                     <label htmlFor="">Input Data</label>
@@ -261,9 +257,9 @@ const CariMobil = () => {
                         
                         <button className="btn btn-success" type="submit">Submit</button>
                     </div>
-                </form> */}
+                </form> 
 
-        {/* <div className="form d-flex flex-column">
+        <div className="form d-flex flex-column">
                     <label htmlFor="" style={{ marginBottom: 10 }} >
                     Edit Data Object Base on ID 
                     </label>
@@ -277,9 +273,9 @@ const CariMobil = () => {
                                 Submit
                             </button>
                     </div>
-                </div> */}
+                </div> 
 
-        {/* <div className="form d-flex flex-column">
+              <div className="form d-flex flex-column">
                     <label htmlFor="" style={{ marginBottom: 10 }} >
                     Delete Data Object Base on ID 
                     </label>
