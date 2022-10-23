@@ -37,9 +37,9 @@ const Filter = (filterData) => {
             </label>
             <select ref={filterData.category}>
               <option />
-              <option value="4">2 - 4 Orang</option>
-              <option value="6">4 - 6 Orang</option>
-              <option value="8">6 - 8 Orang</option>
+              <option value="small">2 - 4 Orang</option>
+              <option value="medium">4 - 6 Orang</option>
+              <option value="large">6 - 8 Orang</option>
             </select>
           </div>
 
@@ -49,9 +49,9 @@ const Filter = (filterData) => {
             </label>
             <select ref={filterData.harga}>
               <option />
-              <option value="400">Rp. 400.000</option>
-              <option value="500">Rp. 500.000</option>
-              <option value="800">Rp. 800.000</option>
+              <option value="small">{'< Rp. 400.000'}</option>
+              <option value="medium">Rp. 400.000 - Rp. 600.000</option>
+              <option value="large">{'> Rp. 800.000'}</option>
             </select>
           </div>
 

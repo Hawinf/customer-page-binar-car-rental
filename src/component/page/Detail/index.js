@@ -10,12 +10,12 @@ const Detail = () => {
   let {id} = useParams();
   console.log(id);
   
-  const baseUrl = 'http://localhost:4000';
+  const baseUrl = 'https://bootcamp-rent-cars.herokuapp.com';
 
   const fetch = useRef(true);
 
   const getDetail = (id) => {
-    axios.get(`${baseUrl}/cars/${id}`)
+    axios.get(`${baseUrl}/customer/car/${id}`)
     .then((response) => {
       console.log(detail)
       console.log(response.data)

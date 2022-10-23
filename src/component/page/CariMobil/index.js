@@ -48,7 +48,7 @@ const CariMobil = () => {
   //         .then((response) => response.json())
   //         .then((data) => setCars(dataCars));
   // }
-  const baseUrl = "http://localhost:4000";
+  const baseUrl = "https://bootcamp-rent-cars.herokuapp.com";
 
   const getCars = () => {
     Axios.get(`${baseUrl}/cars`)
@@ -152,7 +152,25 @@ const CariMobil = () => {
   const harga = useRef('');
   const statusOrder = useRef('');
 
-  
+  const price = () => {
+    if (harga.current.value === "small" ) {
+      return {
+        maxPrice : 400000
+      }
+    } else if (harga.current.value === "medium" ){
+      return {
+        minPrice: 400000,
+        maxPrice: 600000
+      }
+    }else if(harga.current.value === "large") {
+      return {
+        minPrice: 600000,
+      }
+    }else {
+      return ""
+    }
+  }
+  console.log('pricee nya ', price())
 
   const getData = (e) => {
     e.preventDefault();
@@ -164,8 +182,10 @@ const CariMobil = () => {
     const params = {
       name: namaMobil.current.value,
       category: category.current.value,
-      price: harga.current.value,
-      status: statusOrder.current.value
+      // price: harga.current.value,
+      minPrice: price().minPrice,
+      maxPrice: price().maxPrice,
+      isRented: statusOrder.current.value
     }
 
     // Axios.get(`${baseUrl}/cars?name=${namaMobil.current.value}&category=${category.current.value}&price=${harga.current.value}&status=${statusOrder.current.value}`)
@@ -177,7 +197,7 @@ const CariMobil = () => {
     setEmptyData(false)
     setCars([]); 
 
-    Axios.get(`${baseUrl}/cars?${queryData(params)}`)
+    Axios.get(`${baseUrl}/customer/v2/car?${queryData(params)}`)
 
 
     // Axios.get(`${baseUrl}/cars?` + 
@@ -188,17 +208,19 @@ const CariMobil = () => {
     
 
       .then((response) => {
-        if (response) {
-          if(response.data.length > 0){
-          console.log(response.data);
-          const descending = response.data.sort((a, b) => b.id - a.id);
-          setCars(descending);
-          
-        } else {
+        if (response.data.cars.length > 0 ){
+          setCars(response.data.cars);
+        }else {
           setEmptyData(true)
+        }
+        
+        
+          
+        // } else {
+        //   setEmptyData(true)
          
-        }
-        }
+        // }
+        // }
       })
       .catch((error) => console.log(error));
   };
@@ -233,7 +255,7 @@ const CariMobil = () => {
                   <div className="card-description">
                     <h3>{car.name}</h3>
                     <p>Rp. {car.price.toLocaleString().replace(/,/g, ".")} / Hari</p>
-                    <p>{car.description}</p>
+                    <p>Description</p>
                   </div>
                   <Link
                     className="btn btn-success"
