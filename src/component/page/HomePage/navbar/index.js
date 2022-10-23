@@ -11,6 +11,9 @@ const Navbar = () => {
   const openSidebar = () => {
     setActive(true);
   }
+  const closeSidebar = () => {
+    setActive(false);
+  }
   return (
     <header className="header">
    <div className="container">
@@ -23,7 +26,7 @@ const Navbar = () => {
           <div className="top-sidebar">
             <h3>BCR</h3>
             <div className="close-icon">
-              <img src={CloseButton} alt="" />
+              <img src={CloseButton} alt="" onClick={closeSidebar}/>
             </div>
           </div>
           <ul className="menu">
