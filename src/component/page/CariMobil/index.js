@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { queryData } from '../../../helper.js';
-import Filter from '../filter'
+import Filter from '../filter';
+import Footer from '../HomePage/footer';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./style.css";
 
@@ -243,32 +244,35 @@ const CariMobil = () => {
       <div className="container">
         
       <Filter {...filterData} />
-
-      <div className="row">
-          {cars.map((car, index) => {
-            return (
-              <div className="col-lg-3" key={index}>
-                <div className="card">
-                  <div className="card-thumbnail">
-                    <img src={car.image} alt="" />
+      <div className="container" >
+        <div className="row">
+            {cars.map((car, index) => {
+              return (
+                
+                <div className="col-lg-4" key={index}>
+                  <div className="card">
+                    <div className="card-thumbnail">
+                      <img src={car.image} alt="" />
+                    </div>
+                    <div className="card-description">
+                      <h3>{car.name}</h3>
+                      <p className="harga">Rp. {car.price.toLocaleString().replace(/,/g, ".")} / Hari</p>
+                      <p className="deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    </div>
+                    <Link
+                      className="btn btn-success"
+                      to={`/cari-mobil/${car.id}`}
+                    >
+                      Pilih Mobil
+                    </Link>
                   </div>
-                  <div className="card-description">
-                    <h3>{car.name}</h3>
-                    <p>Rp. {car.price.toLocaleString().replace(/,/g, ".")} / Hari</p>
-                    <p>Description</p>
-                  </div>
-                  <Link
-                    className="btn btn-success"
-                    to={`/cari-mobil/${car.id}`}
-                  >
-                    Pilih Mobil
-                  </Link>
                 </div>
-              </div>
-            );
-          })}
-          {emptyData && <>Data Tidak Ditemukan</>}
+              );
+            })}
+            {emptyData && <>Data Tidak Ditemukan</>}
+            < Footer />
         </div>
+      </div>
 
         
 

@@ -4,3 +4,31 @@
 img{
     max-width: 100%;
 }
+.card {
+    height: 478px;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-color: white;
+}
+.card-description h3 {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+.card-description .harga{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+.card-description .deskripsi{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+.card .btn {
+    background: #5cb85f;
+    border-radius: 2px;
+    border: 0;
+}

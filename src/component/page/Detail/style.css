@@ -1,9 +1,41 @@
 .Detail{
-    padding-top: 230px;
+    padding-top: 180px;
 }
-.icon-back{
-    transition: 0.3s;
+.card-2 {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    /* height: 435px; */
+    border-radius: 8px;
+    padding: 20px;
 }
-.icon-back:hover{
-    stroke: yellow;
+.card-2 h1{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+.card-2 p {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 20px;
+}
+.card-2 .harga {
+    justify-content: space-between;
+}
+.card-2 .kapasitas{
+    display: flex;
+}
+.card-1 {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    /* height: 618px; */
+    border-radius: 8px;
+    padding: 20px;
+}
+.card-1 h2 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+}
+.card-1 p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 170%;
 }
