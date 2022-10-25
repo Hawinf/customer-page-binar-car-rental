@@ -73,7 +73,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-}
+} 
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
@@ -4282,7 +4282,7 @@ textarea.form-control-lg {
 }
 
 .card-body {
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; */
   padding: 1rem 1rem;
 }
 

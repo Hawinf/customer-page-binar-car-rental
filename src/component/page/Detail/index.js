@@ -9,6 +9,7 @@ import { Card } from 'reactstrap';
 
 const Detail = () => {
 
+  
   const[detail, setDetail] = useState({});
   let {id} = useParams();
   console.log(id);
@@ -89,7 +90,7 @@ const Detail = () => {
                       </div>
                       <div className='pb-5 d-flex harga'>
                         <h1>Total</h1>
-                        <h1>Car Price</h1>
+                        <h1>Rp. Nanti</h1>
                       </div>
                     </div>
                 </div>

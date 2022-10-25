@@ -15,21 +15,40 @@
     font-size: 14px;
     line-height: 20px;
 }
-.card {
-    background-color: #f1f3ff;
+.card-testi {
+    background: #F1F3FF;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 20px;
-    display: flex;
+    margin: 10px;
+    padding: 80px 20px;
+    justify-content: space-around;
 }
-.card h2{
+.card-body img {
+    width: 100px;
+    height: 100px;
+}
+.card-text {
+    width: 60%;
+    margin-right: 50px;
+}
+.card-text h2{
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
 }
-.card p{
+.card-text p{
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
 }
+.testikard{
+    display: flex;
+}
+
+/* Breakpoint responsive */
+@media (min-width:992px) {
+    
+    }
+
 

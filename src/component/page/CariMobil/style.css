@@ -11,6 +11,7 @@ img{
     margin: 30px 10px 10px 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     border-color: white;
+    padding: 20px;
 }
 .card-description h3 {
     padding-top: 50px;
@@ -33,4 +34,7 @@ img{
     background: #5cb85f;
     border-radius: 2px;
     border: 0;
+}
+.card-thumbnail{
+    padding: 10px;
 }

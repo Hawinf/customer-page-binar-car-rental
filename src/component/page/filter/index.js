@@ -36,7 +36,7 @@ const Filter = (filterData) => {
               >
                 Nama Mobil
               </label>
-              <input type="text" classname="px-2" ref={filterData.namaMobil} />
+              <input type="text" classname="px-2 form-control" ref={filterData.namaMobil} />
             </div>
 
             <div className="mb-4 kartu-1 col-lg-2">
@@ -79,7 +79,10 @@ const Filter = (filterData) => {
                 Submit
               </button>
             </div>
+
           </form>
+
+          
         </div>
       </div>
       
