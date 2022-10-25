@@ -12,12 +12,49 @@ form {
     font-size: 12px;
     line-height: 18px;
     color: #3c3c3c;
-    padding: 10px;
+    padding: 30px;
+    /* margin: 30px 0; */
 }
 .kartu-1 label{
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
     color: #3c3c3c;
-    padding: 10px;
+    margin-bottom: 10px;
+    
 }
+.judul{
+    display: block;
+    margin-top: 30px;
+}
+.form-1 {
+    width: 221px;
+    height: 36px;
+    margin-bottom: 30px;
+    border: 1px solid #D0D0D0;
+    border-radius: 2px;
+}
+.tombol {
+    margin-top: 55px;
+}
+.tombol button{
+    background: #5CB85F;
+    border-radius: 2px;
+    /* padding: 0 10px; */
+    border: 0;
+}
+.form-1 option{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+select:required:invalid {
+    background: white;
+  }
+  select, option {
+    background: white;
+    color: #3C3C3C;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+  }

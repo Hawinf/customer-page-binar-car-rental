@@ -317,6 +317,10 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  /* style tambahan sendiri */
+  /* width: 200px;
+  height: 36px; */
+  /* diatas style tambahan sendiri */
 }
 
 button,
@@ -448,6 +452,8 @@ progress {
 
 [hidden] {
   display: none !important;
+  /* DIBAWAH INI STYLE SAYA SENDIR */
+    
 }
 
 .lead {
@@ -1415,7 +1421,7 @@ progress {
 
   .col-lg-2 {
     flex: 0 0 auto;
-    width: 16.66666667%;
+    /* width: 16.66666667%; */
   }
 
   .col-lg-3 {

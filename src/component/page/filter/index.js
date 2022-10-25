@@ -28,55 +28,54 @@ const Filter = (filterData) => {
         <div className="col-lg-12">
           <form className="form d-flex" onSubmit={filterData.getData}>
 
-            <div className="mb-4 kartu col-lg-2">
+            <div className="kartu col-lg-2">
               <label
-                className="mr-2 d-block"
+                className="d-block"
                 htmlFor=""
-                style={{ marginBottom: 10 }}
               >
                 Nama Mobil
               </label>
-              <input type="text" classname="px-2 form-control" ref={filterData.namaMobil} />
+              <input type="text" classname="form-1" ref={filterData.namaMobil} />
             </div>
 
-            <div className="mb-4 kartu-1 col-lg-2">
-              <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
+            <div className="kartu-1 col-lg-2">
+              <label className="judul" htmlFor="" >
                 Kategory
               </label>
-              <select ref={filterData.category}>
-                <option />
+              <select ref={filterData.category} className="form-1">
+              <option disabled selected hidden>Masukan Kapasitas Mobil</option>
                 <option value="small">2 - 4 Orang</option>
                 <option value="medium">4 - 6 Orang</option>
                 <option value="large">6 - 8 Orang</option>
               </select>
             </div>
 
-            <div className="mb-4 kartu-1 col-lg-2">
-              <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
+            <div className="kartu-1 col-lg-2">
+              <label className="judul" htmlFor="">
                 Harga
               </label>
-              <select ref={filterData.harga}>
-                <option />
+              <select ref={filterData.harga} className="form-1">
+                <option disabled selected hidden>Masukan Harga Sewa per Hari</option>
                 <option value="small">{'< Rp. 400.000'}</option>
                 <option value="medium">Rp. 400.000 - Rp. 600.000</option>
                 <option value="large">{'> Rp. 800.000'}</option>
               </select>
             </div>
 
-            <div className="mb-4 kartu-1 col-lg-2 d-block">
-              <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
+            <div className="kartu-1 col-lg-2 ">
+              <label className="judul" htmlFor="">
                 Status
               </label>
-              <select ref={filterData.statusOrder}>
-                <option />
+              <select ref={filterData.statusOrder} className="form-1">
+                <option disabled selected hidden>Disewa</option>
                 <option value="true">Tersedia</option>
                 <option value="false">Disewa</option>
               </select>
             </div>
 
-            <div  className="col-lg-2">
+            <div  className="col-lg-2 tombol">
               <button className="btn btn-success" type="submit">
-                Submit
+                Cari Mobil
               </button>
             </div>
 
