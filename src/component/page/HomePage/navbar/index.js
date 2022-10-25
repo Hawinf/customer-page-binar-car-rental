@@ -19,7 +19,9 @@ const Navbar = () => {
    <div className="container">
       <div className="row">
         <div className="logo">
-          <img src={Logo} alt="logo saya" />
+          <a href={'/'} >
+            <img src={Logo} alt="logo saya" />
+          </a>
         </div>
         <div className={`overlay-bg ${active ? 'menu-active' : ''}`} />
         <div className={`sidebar ${active ? 'menu-active' : ''}`}>

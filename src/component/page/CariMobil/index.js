@@ -5,6 +5,7 @@ import Axios from "axios";
 import { queryData } from '../../../helper.js';
 import Filter from '../filter';
 import Footer from '../HomePage/footer';
+import HeroSection from "../HomePage/hero-section/index.js";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./style.css";
 
@@ -240,10 +241,13 @@ const CariMobil = () => {
   }
 
   return (
+    
     <div className="carimobil">
+      <HeroSection />
       <div className="container">
         
       <Filter {...filterData} />
+      
       <div className="container" >
         <div className="row">
             {cars.map((car, index) => {

@@ -65,6 +65,7 @@
   }
   .sidebar.menu-active{
     display: block;
+    right: 0;
     /* display: flex; */
     /* right: 0; */
   }

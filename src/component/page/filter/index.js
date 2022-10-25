@@ -22,13 +22,13 @@ const Filter = (filterData) => {
 
       
 
-  <div className="container">
+  
     <div className="container" >
       <div className="row">
         <div className="col-lg-12">
           <form className="form d-flex" onSubmit={filterData.getData}>
 
-            <div className="mb-4 kartu">
+            <div className="mb-4 kartu col-lg-2">
               <label
                 className="mr-2 d-block"
                 htmlFor=""
@@ -39,7 +39,7 @@ const Filter = (filterData) => {
               <input type="text" classname="px-2" ref={filterData.namaMobil} />
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 kartu-1 col-lg-2">
               <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
                 Kategory
               </label>
@@ -51,7 +51,7 @@ const Filter = (filterData) => {
               </select>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 kartu-1 col-lg-2">
               <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
                 Harga
               </label>
@@ -63,7 +63,7 @@ const Filter = (filterData) => {
               </select>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 kartu-1 col-lg-2 d-block">
               <label className="mr-2" htmlFor="" style={{ marginBottom: 10 }}>
                 Status
               </label>
@@ -74,13 +74,15 @@ const Filter = (filterData) => {
               </select>
             </div>
 
-            <button className="btn btn-success" type="submit">
-              Submit
-            </button>
+            <div  className="col-lg-2">
+              <button className="btn btn-success" type="submit">
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
-      </div>
+      
   </div>
     )
 }

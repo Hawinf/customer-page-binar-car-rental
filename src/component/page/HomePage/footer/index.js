@@ -23,10 +23,10 @@ const Footer = () => {
 
                 <div className="col-lg-3 col-md-12">
                     <div className="footer-2">
-                        <a href="">Our services</a>
-                        <a href="">Why Us</a>
-                        <a href="">Testimonial</a>
-                        <a href="">FAQ</a>
+                        <a href="#our-services">Our services</a>
+                        <a href="#why">Why Us</a>
+                        <a href="#testimonial">Testimonial</a>
+                        <a href="#faq">FAQ</a>
                     </div>
                 </div>
 
@@ -46,7 +46,9 @@ const Footer = () => {
                 <div className="col-lg-3 col-md-12">
                     <div className="footer-4">
                         <h5>Copyright Binar 2022</h5>
-                        <img src={Rectangle} alt="" />
+                        <a href={'/'} >
+                            <img src={Rectangle} alt="" />
+                        </a>
                     </div>
                 </div>
 
