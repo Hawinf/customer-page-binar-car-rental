@@ -38,7 +38,7 @@ const Detail = () => {
     }
   },[id]);
 
-  console.log("ini ditail", detail.price)
+  console.log("ini kategori", detail.category)
   return (
     <div className='Detail' >
         {/* <SkipBack className='icon-back' color="red" size={48} /> */}
@@ -91,7 +91,7 @@ const Detail = () => {
                     <h1>{detail.name}</h1>
                       <div className='kapasitas'>
                         <img src={Fiuser} alt="fiuser" />
-                        <p>nanti</p>
+                        <p>{detail.category}</p>
                       </div>
                       <div className='pb-5 d-flex harga'>
                         <h1>Total</h1>
