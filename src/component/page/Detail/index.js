@@ -12,7 +12,7 @@ const Detail = () => {
   
   const[detail, setDetail] = useState({});
   let {id} = useParams();
-  console.log(id);
+  // console.log(id);
   
   const baseUrl = 'https://bootcamp-rent-cars.herokuapp.com';
 
@@ -21,8 +21,8 @@ const Detail = () => {
   const getDetail = (id) => {
     axios.get(`${baseUrl}/customer/car/${id}`)
     .then((response) => {
-      console.log(detail)
-      console.log(response.data)
+      // console.log(detail)
+      // console.log(response.data)
       setDetail(response.data)
     })
     .catch((error) => 
@@ -34,9 +34,11 @@ const Detail = () => {
     if(fetch.current) {
       fetch.current = false;
       getDetail(id)
+      
     }
   },[id]);
 
+  console.log("ini ditail", detail.price)
   return (
     <div className='Detail' >
         {/* <SkipBack className='icon-back' color="red" size={48} /> */}
@@ -80,9 +82,12 @@ const Detail = () => {
                   </div>
                 </div>
 
+{/* ini menggunakan kondisi */}
+                {
+                  Object.keys(detail).length > 0 ? (
                 <div className='col-lg-5 '>
                   <div className='card-2'>
-                    <img src={detail?.image} className="px-3" alt="image-error" />
+                    <img src={detail.image} className="px-3" alt="image-error" />
                     <h1>{detail.name}</h1>
                       <div className='kapasitas'>
                         <img src={Fiuser} alt="fiuser" />
@@ -90,10 +95,30 @@ const Detail = () => {
                       </div>
                       <div className='pb-5 d-flex harga'>
                         <h1>Total</h1>
-                        <h1>Rp. Nanti</h1>
+                        <h1>Rp. {detail.price.toLocaleString().replace(/,/g, ".")} / Hari</h1>
                       </div>
                     </div>
                 </div>
+
+                  ) : null
+                }
+                
+{/*  ini menggunakan optional chaining
+                <div className='col-lg-5 '>
+                  <div className='card-2'>
+                    <img src={detail?.image} className="px-3" alt="image-error" />
+                    <h1>{detail?.name}</h1>
+                      <div className='kapasitas'>
+                        <img src={Fiuser} alt="fiuser" />
+                        <p>nanti</p>
+                      </div>
+                      <div className='pb-5 d-flex harga'>
+                        <h1>Total</h1>
+                        <h1>Rp. {detail?.price?.toLocaleString()?.replace(/,/g, ".")} / Hari</h1>
+                      </div>
+                    </div>
+                </div> */}
+
               
             </div>
           </div>

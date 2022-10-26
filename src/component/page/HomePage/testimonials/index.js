@@ -19,15 +19,17 @@ const Testimonial = () => {
       slidesToScroll: 1,
       initialSlide: 1,
       responsive: [
-        // {
-        //   breakpoint: 1024,
-        //   settings: {
-        //     slidesToShow: 1,
-        //     slidesToScroll: 3,
-        //     infinite: true,
-        //     dots: true,
-        //   },
-        // },
+        {
+          breakpoint: 991,
+          settings: {
+            centerMode: false,
+            // centerPadding: "0",
+            // slidesToShow: 1,
+            // slidesToScroll: 3,
+            // infinite: true,
+            // dots: true,
+          },
+        },
         // {
         //   breakpoint: 600,
         //   settings: {

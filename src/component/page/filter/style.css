@@ -21,33 +21,42 @@ form {
     line-height: 18px;
     color: #3c3c3c;
     margin-bottom: 10px;
-    
+   
 }
 .judul{
     display: block;
     margin-top: 30px;
 }
+
 .form-1 {
     width: 221px;
     height: 36px;
     margin-bottom: 30px;
     border: 1px solid #D0D0D0;
     border-radius: 2px;
+    margin-right: 15px;
 }
 .tombol {
     margin-top: 55px;
+    
 }
 .tombol button{
     background: #5CB85F;
     border-radius: 2px;
     /* padding: 0 10px; */
     border: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px;
+    
 }
-.form-1 option{
+
+/* .form-1 option{
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-}
+} */
 select:required:invalid {
     background: white;
   }
