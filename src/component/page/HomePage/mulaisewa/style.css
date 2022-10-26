@@ -22,11 +22,26 @@
     padding-top: 15px;
     margin: auto;
 }
-.bgcardbg a{
+
+.bgcardbg a {
     background: #5CB85F;
-    border-radius: 2px;
     margin-top: 52px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
+.bgcardbg a:hover{
+    background: #6ad16e;
+    
+}
+
+
+
+
+
+
 @media (max-width:576px) {
     .bigcard{
         margin: 0 20px;

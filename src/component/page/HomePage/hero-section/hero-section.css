@@ -29,6 +29,9 @@
     line-height: 25px;
     height: 36px;
   }
+  .hero-teks a:hover{
+    background: #6ad16e;
+  }
   .hero-foto{
     position: absolute;
     right: 0;

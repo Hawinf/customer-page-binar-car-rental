@@ -120,6 +120,7 @@ h6, .h6 {
 }
 
 p {
+  /* margin dimatikan untuk services section */
   margin-top: 0;
   margin-bottom: 1rem;
 }
