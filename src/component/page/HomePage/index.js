@@ -1,4 +1,5 @@
 import Navbar from "./navbar"
+import Services from "./services"
 import HeroSection from "./hero-section"
 import MulaiSewa from "./mulaisewa"
 import WhyUs from "./why-us"
@@ -14,9 +15,10 @@ const HomePage = () => {
         <div className='homepage'>
             <Navbar />
             <HeroSection />
-            <MulaiSewa />
+            <Services />
             <WhyUs />
             <Testimonial />
+            <MulaiSewa />
             <FaqSection />
             <Footer />
         </div>
