@@ -253,10 +253,10 @@ const CariMobil = () => {
             {cars.map((car, index) => {
               return (
                 
-                <div className="col-lg-4" key={index}>
+                <div className="col-lg-4 col-md-6" key={index}>
                   <div className="card">
                     <div className="card-thumbnail">
-                      <img src={car.image} alt="" />
+                      <img className="img" src={car.image !== null ? car.image: "https://placehold.jp/24/cc9999/993333/350x200.png" } alt="" />
                     </div>
                     <div className="card-description">
                       <h3>{car.name}</h3>

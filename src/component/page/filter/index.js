@@ -1,5 +1,5 @@
 
-import React from "react";
+import React ,{ useState }from "react";
 import './filter.css';
 
 
@@ -17,16 +17,26 @@ import './filter.css';
 
 const Filter = (filterData) => {
   // console.log(filterData)
+  const [active, setActive] = useState(false);
+
+  const openOverlay = () => {
+    setActive(true);
+  }
+  const closeOverlay = () => {
+    setActive(false);
+  }
+  
+  
 
     return (
 
-      
-
   
-    <div className="container" >
+<>
+    {/* <div className={`overlay-bg ${active ? 'menu-active' : ''}`} /> */}
+    <div className="container"  >
       <div className="row">
         <div className="col">
-          <form className="form d-flex" onSubmit={filterData.getData}>
+          <form className="form d-flex"  onSubmit={filterData.getData}>
 
           
             <div className="col-lg-2">
@@ -83,8 +93,8 @@ const Filter = (filterData) => {
             </div>
 
             <div className="col-lg-2 ">
-              <div  className="cari-mobil">
-                <button className="btn btn-success" type="submit">
+              <div  className="cari-mobil "  >
+                <button className="btn btn-success" type="submit" >
                   Cari Mobil
                 </button>
               </div>
@@ -99,6 +109,7 @@ const Filter = (filterData) => {
        </div>
       
   </div>
+  </>
     )
 }
 

@@ -52,7 +52,7 @@ const Detail = () => {
 
             <div className='row'>
 
-                <div className='col-lg-7'>
+                <div className='col-lg-7 col-md-12'>
                   <div className='card-1'>
                     <div className='include'>
                       <h2>Tentang Paket</h2>
@@ -85,9 +85,9 @@ const Detail = () => {
 {/* ini menggunakan kondisi */}
                 {
                   Object.keys(detail).length > 0 ? (
-                <div className='col-lg-5 '>
-                  <div className='card-2'>
-                    <img src={detail.image} className="px-3" alt="image-error" />
+                <div className='col-lg-5 col-md-12'>
+                  <div className='card-2 '>
+                    <img  src={detail.image !== null ? detail.image: "https://placehold.jp/24/cc9999/993333/350x200.png" } className="image" alt="image-error" />
                     <h1>{detail.name}</h1>
                       <div className='kapasitas'>
                         <img src={Fiuser} alt="fiuser" />
