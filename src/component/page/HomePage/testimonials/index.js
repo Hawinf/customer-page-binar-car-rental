@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick-theme.css'
 import img1 from '../images/img_photo.png';
 import img2 from '../images/img_photo1.png';
 import Rate from '../images/Rate.png';
-import Left from './leftbutton.png';
-import Right from './rightbutton.png';
+import Left from './left.svg';
+import Right1 from './right.svg';
 import {Card, Row, Col} from "react-bootstrap";
 
 
@@ -173,13 +173,14 @@ export default class PreviousNextMethods extends Component {
               </Col>
             </Row>
           </Slider>
-          <div style={{textAlign: "center", margin: "20px"}}>
-            <button className="btnprev">
-              <img src={Left} alt="" onClick={this.previous} />
-            </button>
-            <button className="btnnext">
-              <img src={Right} alt="" onClick={this.next} />
-            </button>
+          <div style={{textAlign: "center", margin: "20px"}} className="tombol-geser">
+            
+                <img src={Left} alt="" onClick={this.previous} className="mx-1 geser-kanan"/>
+             
+              
+                <img src={Right1} alt="" onClick={this.next} className="mx-1 geser-kanan" />
+             
+                
           </div>
         </div>
       </>

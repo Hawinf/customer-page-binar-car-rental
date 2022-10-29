@@ -40,6 +40,17 @@
     font-size: 14px;
     line-height: 20px;
 }
+.tombol-geser .geser-kanan{
+    border: 1px solid #C4C4C4;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+    width: 32px;
+    height: 32px;
+}
+.tombol-geser .geser-kanan:hover{
+    background: #5CB85F;;
+}
 
 /* BREAKPOINT RESPONSIVE */
 @media (max-width:767px) {
