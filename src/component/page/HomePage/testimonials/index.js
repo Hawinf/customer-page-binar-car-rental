@@ -40,6 +40,15 @@ export default class PreviousNextMethods extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       initialSlide: 1,
+      // responsive: [
+      //   {
+      //       breakpoint: 600,
+      //       settings: {
+      //       slidesToShow: 1,
+      //       slidesToScroll: 1,
+      //       initialSlide: 1}
+      //   }
+      // ]
     };
 
     return (
@@ -64,17 +73,17 @@ export default class PreviousNextMethods extends Component {
                           <img src={img1} alt="" />
                         </div>
                         <div className="card_kanan">
-                          <div className="faq-icon">
+                          <div className="faq-icon mb-2">
                             <img src={Rate} alt="" />
                           </div>
-                          <p>
+                          <p className="kanan-desk">
                             “Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod lorem ipsum dolor sit amet,
                             consectetur adipiscing elit, sed do eiusmod lorem ipsum
                             dolor sit amet, consectetur adipiscing elit, sed do
                             eiusmod”
                           </p>
-                          <p>John, Bromo</p>
+                          <p className="kanan-penulis">John Dee 32, Bromo</p>
                         </div>
                       </Card.Body>
                     </div>
@@ -92,7 +101,7 @@ export default class PreviousNextMethods extends Component {
                         <img src={img2} alt="" />
                       </div>
                       <div className="card_kanan">
-                        <div className="faq-icon">
+                        <div className="faq-icon mb-2">
                           <img src={Rate} alt="" />
                         </div>
                         <p>
@@ -102,7 +111,7 @@ export default class PreviousNextMethods extends Component {
                           dolor sit amet, consectetur adipiscing elit, sed do
                           eiusmod”
                         </p>
-                        <p>John, Bromo</p>
+                        <p className="kanan-penulis">John Dee 32, Bromo</p>
                       </div>
                     </Card.Body>
                   </div>
@@ -119,7 +128,7 @@ export default class PreviousNextMethods extends Component {
                         <img src={img1} alt="" />
                       </div>
                       <div className="card_kanan">
-                        <div className="faq-icon">
+                        <div className="faq-icon mb-2">
                           <img src={Rate} alt="" />
                         </div>
                         <p>
@@ -129,7 +138,7 @@ export default class PreviousNextMethods extends Component {
                           dolor sit amet, consectetur adipiscing elit, sed do
                           eiusmod”
                         </p>
-                        <p>John, Bromo</p>
+                        <p className="kanan-penulis">John Dee 32, Bromo</p>
                       </div>
                     </Card.Body>
                   </div>
@@ -146,7 +155,7 @@ export default class PreviousNextMethods extends Component {
                         <img src={img2} alt="" />
                       </div>
                       <div className="card_kanan">
-                        <div className="faq-icon">
+                        <div className="faq-icon mb-2">
                           <img src={Rate} alt="" />
                         </div>
                         <p>
@@ -156,7 +165,7 @@ export default class PreviousNextMethods extends Component {
                           dolor sit amet, consectetur adipiscing elit, sed do
                           eiusmod”
                         </p>
-                        <p>John, Bromo</p>
+                        <p className="kanan-penulis">John Dee 32, Bromo</p>
                       </div>
                     </Card.Body>
                   </div>

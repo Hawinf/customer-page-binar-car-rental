@@ -1,6 +1,6 @@
 .testimonials .testi-judul{
     text-align: center;
-    font-family: 'Arial';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -9,7 +9,7 @@
 }
 .testimonials .testi-deskripsi{
     text-align: center;
-    font-family: 'Arial';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -30,9 +30,42 @@
 .card_kanan{
     margin: 20px;
 }
-.card_kanan .kanan-desk{
+.card_kanan{
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
 }
+.kanan-penulis{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
 
+/* BREAKPOINT RESPONSIVE */
+@media (max-width:767px) {
+    .testi .card-testi{
+        display: block;
+    }
+    .card-testi .card_kiri{
+        display: flex;
+        justify-content: center;
+    }
+    .faq-icon{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .testi .card-testi{
+        padding: 5px;
+    } 
+    .testimonials .testi-judul{
+        font-size: 20px;
+    }
+    .testimonials .testi-deskripsi{
+        width: 80%;
+        margin: auto;
+        font-size: 12px;
+        padding-bottom: 20px;
+    }
+    
+}
