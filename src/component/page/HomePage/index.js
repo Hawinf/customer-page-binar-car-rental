@@ -10,6 +10,7 @@ import Testimonial from './testimonials'
 
 
 
+
 const HomePage = () => {
     return(
         <div className='homepage'>
@@ -18,6 +19,7 @@ const HomePage = () => {
             <Services />
             <WhyUs />
             <Testimonial />
+            {/* <Slider /> */}
             <MulaiSewa />
             <FaqSection />
             <Footer />

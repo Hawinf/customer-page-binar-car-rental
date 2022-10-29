@@ -1,125 +1,202 @@
-import React from "react";
-import './testi.css'
+import React, { Component } from "react";
 import Slider from "react-slick";
+import './testi.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import img1 from '../images/img_photo.png';
 import img2 from '../images/img_photo1.png';
-import Rate from '../images/Rate.png'
+import Rate from '../images/Rate.png';
+import Left from './leftbutton.png';
+import Right from './rightbutton.png';
+import {Card, Row, Col} from "react-bootstrap";
 
-const Testimonial = () => {
+
+
+  
+
+export default class PreviousNextMethods extends Component {
+  constructor(props) {
+    super(props);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
+
+  render() {
     const settings = {
       className: "center",
       centerMode: true,
-      centerPadding: "200px",
-      dots: true,
+      centerPadding: "60px",
       infinite: true,
+      autoplay: true,
+      pauseOnHover: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       initialSlide: 1,
-      responsive: [
-        {
-          breakpoint: 991,
-          settings: {
-            centerMode: false,
-            // centerPadding: "0",
-            // slidesToShow: 1,
-            // slidesToScroll: 3,
-            // infinite: true,
-            // dots: true,
-          },
-        },
-        // {
-        //   breakpoint: 600,
-        //   settings: {
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     initialSlide: 2,
-        //     centerMode: false
-        // },
-        // },
-        // {
-        // breakpoint: 480,
-        // settings: {
-        //     slidesToShow: 1,
-        //     slidesToScroll: 3,
-        // },
-        // },
-  ],
-};
+    };
 
-return (
-    <div className="testimoni-section" id="testimonial">
-          <div className="Judul-testimoni">
-            <h1>Testimonial</h1>
-            <p>Berbagai review positif dari para pelanggan kami</p>
+    return (
+      <>
+
+        <div className="container">
+          <div className="testimonials">
+            <h1 className="testi-judul">Testimonial</h1>
+            <p className="testi-deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
           </div>
-  
-    <Slider {...settings}>
+        </div>
 
-
-            
-               
-            
+        <div className="container-fluid">
+          <Slider ref={(c) => (this.slider = c)} {...settings}>
+            <Row>
+              <Col lg={12}>
                 
-                  <div className="card-testi d-flex">
-                      <div className="card-body">
+                  <Card>
+                    <div className="testi">
+                      <Card.Body className="card-testi">
+                        <div className="card_kiri">
+                          <img src={img1} alt="" />
+                        </div>
+                        <div className="card_kanan">
+                          <div className="faq-icon">
+                            <img src={Rate} alt="" />
+                          </div>
+                          <p>
+                            “Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit, sed do eiusmod lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod”
+                          </p>
+                          <p>John, Bromo</p>
+                        </div>
+                      </Card.Body>
+                    </div>
+                  </Card>
+                
+              </Col>
+            </Row>
+
+            <Row>
+              <Col lg={12}>
+                <Card>
+                  <div className="testi">
+                    <Card.Body className="card-testi">
+                      <div className="card_kiri">
+                        <img src={img2} alt="" />
+                      </div>
+                      <div className="card_kanan">
+                        <div className="faq-icon">
+                          <img src={Rate} alt="" />
+                        </div>
+                        <p>
+                          “Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit, sed do eiusmod lorem ipsum
+                          dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod”
+                        </p>
+                        <p>John, Bromo</p>
+                      </div>
+                    </Card.Body>
+                  </div>
+                </Card>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col lg={12}>
+                <Card>
+                  <div className="testi">
+                    <Card.Body className="card-testi">
+                      <div className="card_kiri">
                         <img src={img1} alt="" />
                       </div>
-                      <div className="card-text">
-                        <img src={Rate} />
-                        <h2>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”</h2>
-                        <p>John Dee 32, Bromo</p>
+                      <div className="card_kanan">
+                        <div className="faq-icon">
+                          <img src={Rate} alt="" />
+                        </div>
+                        <p>
+                          “Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit, sed do eiusmod lorem ipsum
+                          dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod”
+                        </p>
+                        <p>John, Bromo</p>
                       </div>
+                    </Card.Body>
                   </div>
-                
+                </Card>
+              </Col>
+            </Row>
 
-                  <div className="card-testi d-flex">
-                    <div className="card-body">
-                      <img src={img1} alt="" />
-                    </div>
-                    <div className="card-text">
-                      <img src={Rate} />
-                      <h2>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”</h2>
-                      <p>John Dee 32, Bromo</p>
-                    </div>
+            <Row>
+              <Col lg={12}>
+                <Card>
+                  <div className="testi">
+                    <Card.Body className="card-testi">
+                      <div className="card_kiri">
+                        <img src={img2} alt="" />
+                      </div>
+                      <div className="card_kanan">
+                        <div className="faq-icon">
+                          <img src={Rate} alt="" />
+                        </div>
+                        <p>
+                          “Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit, sed do eiusmod lorem ipsum
+                          dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod”
+                        </p>
+                        <p>John, Bromo</p>
+                      </div>
+                    </Card.Body>
                   </div>
-
-                  <div className="card-testi d-flex">
-                    <div className="card-body">
-                      <img src={img1} alt="" />
-                    </div>
-                    <div className="card-text">
-                      <img src={Rate} />
-                      <h2>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”</h2>
-                      <p>John Dee 32, Bromo</p>
-                    </div>
-                  </div>
-
-                  <div className="card-testi d-flex">
-                    <div className="card-body">
-                      <img src={img1} alt="" />
-                    </div>
-                    <div className="card-text">
-                      <img src={Rate} />
-                      <h2>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”</h2>
-                      <p>John Dee 32, Bromo</p>
-                    </div>
-                  </div>
+                </Card>
+              </Col>
+            </Row>
+          </Slider>
+          <div style={{textAlign: "center", margin: "20px"}}>
+            <button className="btnprev">
+              <img src={Left} alt="" onClick={this.previous} />
+            </button>
+            <button className="btnnext">
+              <img src={Right} alt="" onClick={this.next} />
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }
+}
 
 
-      
-          
-          
-          
-        
-       
-        
-      </Slider>
-    
-      </div>
-)};
 
-export default Testimonial;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

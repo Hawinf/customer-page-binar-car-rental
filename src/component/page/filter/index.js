@@ -33,7 +33,7 @@ const Filter = (filterData) => {
   
 <>
     {/* <div className={`overlay-bg ${active ? 'menu-active' : ''}`} /> */}
-    <div className="container"  >
+    {/* <div className="container"  > */}
       <div className="row">
         <div className="col">
           <form className="form d-flex"  onSubmit={filterData.getData}>
@@ -106,7 +106,7 @@ const Filter = (filterData) => {
 
           
        </div>
-       </div>
+       {/* </div> */}
       
   </div>
   </>

@@ -254,23 +254,26 @@ const CariMobil = () => {
               return (
                 
                 <div className="col-lg-4 col-md-6" key={index}>
-                  <div className="card">
-                    <div className="card-thumbnail">
-                      <img className="img" src={car.image !== null ? car.image: "https://placehold.jp/24/cc9999/993333/350x200.png" } alt="" />
+                  <div className="kelas">
+                    <div className="card">
+                      <div className="card-thumbnail">
+                        <img className="img" src={car.image !== null ? car.image: "https://placehold.jp/24/cc9999/993333/350x200.png" } alt="" />
+                      </div>
+                      <div className="card-description">
+                        <h3>{car.name}</h3>
+                        <p className="harga">Rp. {car.price.toLocaleString().replace(/,/g, ".")} / Hari</p>
+                        <p className="deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                      </div>
+                      <Link
+                        className="btn btn-success"
+                        to={`/cari-mobil/${car.id}`}
+                      >
+                        Pilih Mobil
+                      </Link>
                     </div>
-                    <div className="card-description">
-                      <h3>{car.name}</h3>
-                      <p className="harga">Rp. {car.price.toLocaleString().replace(/,/g, ".")} / Hari</p>
-                      <p className="deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    </div>
-                    <Link
-                      className="btn btn-success"
-                      to={`/cari-mobil/${car.id}`}
-                    >
-                      Pilih Mobil
-                    </Link>
                   </div>
-                </div>
+                  </div>
+                
               );
             })}
             {emptyData && <>Data Tidak Ditemukan</>}
