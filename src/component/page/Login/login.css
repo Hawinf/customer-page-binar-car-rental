@@ -1,0 +1,46 @@
+/* .wrapper-login {
+    margin-top: 110px;
+    width: 100vw;
+} */
+.kotak-input{
+    margin-bottom: 30px;
+}
+.wrapper-login-left {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+}
+.wrapper-login-left .grettings {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+.kartu-email .judul-email {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+.tombol .tombol-1 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+.wrapper-login-right{
+    width: 100%;
+}
+
+
+/* BREAKPOINT RESPONSIVE */
+@media (max-width:992px) {
+    .wrapper-login-right {
+        display: none;
+    }
+    .wrapper-login {
+        margin-top: 0;
+    }
+    .wrapper-login-left {
+        margin: 80px 100px;
+    }
+}
+

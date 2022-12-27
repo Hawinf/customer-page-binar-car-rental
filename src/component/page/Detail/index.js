@@ -3,9 +3,12 @@ import React,{useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 import { SkipBack } from 'react-feather';
 import Footer from '../HomePage/footer'
-import Fiuser from './fi_users.png'
+import Fiuser from './fi_users.png';
+import LogoCalender from './fi_calendar.png'
+import Navbar from "../HomePage/navbar";
 import './style.css'
 import { Card } from 'reactstrap';
+
 
 const Detail = () => {
 
@@ -41,6 +44,7 @@ const Detail = () => {
   console.log("ini kategori", detail.category)
   return (
     <div className='Detail' >
+      <Navbar />
         {/* <SkipBack className='icon-back' color="red" size={48} /> */}
 
         
@@ -93,9 +97,25 @@ const Detail = () => {
                         <img src={Fiuser} alt="fiuser" />
                         <p>{detail.category}</p>
                       </div>
+
+                   {/* Dibawah ini calender */}
+                      <div className='calender'>
+                          <h5 className='tittle-calender'>Tentukan lama sewa mobil (Max. 7 Hari)</h5>
+                          <div className='calender-box'>
+                              <div className='calender-text'>Pilih tanggal mulai dan tanggal akhir sewa</div>
+                              <img src={LogoCalender}/>
+                          </div>
+                      </div>
+
                       <div className='pb-5 d-flex harga'>
                         <h1>Total</h1>
                         <h1>Rp. {detail.price.toLocaleString().replace(/,/g, ".")} / Hari</h1>
+                      </div>
+
+                      <div>
+                        <button className='btn btn-success w-100 payment-btn' disabled>
+                          Lanjutkan Pembayaran
+                        </button>
                       </div>
                     </div>
                 </div>

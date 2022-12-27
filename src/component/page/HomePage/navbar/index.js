@@ -1,4 +1,7 @@
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
+// import React from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
 import './navbar.css';
 import Logo from '../images/logo.png';
 import CloseButton from '../images/close.svg';
@@ -7,6 +10,42 @@ import Menu from '../images/fi_menu.png'
 const Navbar = () => {
 
   const [active, setActive] = useState(false);
+  const Location = useLocation(false);
+  
+  
+
+  
+
+  const RegisterToLogin = () => {
+    const [isLogin, setIsLogin] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect (() => {
+      const token = localStorage.getItem('token')
+
+      if(!token) {
+        setIsLogin(false);
+        setLoading(false)
+      } else {
+        setIsLogin(true)
+        setLoading(false)
+      }
+    }, [isLogin]);
+
+    if(loading) {
+      return 'Loading'
+    }
+  //   return isLogin ?
+  // <li>
+  //   <Link className='btn btn-success' to={'/login'}>Register</Link>
+  // </li> :  
+  //          <li>
+  //             <Link className='btn btn-success' to={'/'}>Log Out</Link>
+  //           </li>
+  }
+  
+
+
 
   const openSidebar = () => {
     setActive(true);
@@ -44,6 +83,16 @@ const Navbar = () => {
             <li>
               <a href="#faq">FAQ</a>
             </li>
+
+        
+            <li>
+              <Link className='btn btn-success' to={'/login'}>Register</Link>
+            </li> 
+
+            
+
+
+
           </ul>
         </div>
 

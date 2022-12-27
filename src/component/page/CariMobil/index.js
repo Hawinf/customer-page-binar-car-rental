@@ -8,6 +8,7 @@ import Footer from '../HomePage/footer';
 import HeroSection from "../HomePage/hero-section/index.js";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./style.css";
+import Navbar from "../HomePage/navbar";
 
 const CariMobil = () => {
   const [cars, setCars] = useState([]);
@@ -243,6 +244,7 @@ const CariMobil = () => {
   return (
     
     <div className="carimobil">
+      <Navbar />
       <HeroSection />
       <div className="container">
         
