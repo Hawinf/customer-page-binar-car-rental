@@ -51,7 +51,9 @@ const Login = () => {
         <div className='row'>
             <div className='col-lg-6 col-md-12'>
                 <div className='wrapper-login-left'>
-                    <img className='my-3' src={Logo} />
+                    <a href={'/'} >
+                        <img className='my-3' src={Logo} />
+                    </a>
                     <h1 className='grettings my-3'>Welcome Back</h1>
                     <div className='kartu-email'>
                         <p className='judul-email'>Email</p>
