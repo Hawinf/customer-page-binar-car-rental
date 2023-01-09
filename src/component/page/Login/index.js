@@ -39,6 +39,7 @@ const Login = () => {
             })
             .catch((err) => {
                 console.log(err.message)
+                Navigate('/register')
                 alert('You Have To Register')
                 Navigate('/register')
             })

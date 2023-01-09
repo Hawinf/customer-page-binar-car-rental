@@ -7,7 +7,7 @@ const MulaiSewa = () => {
             <div className="bigcard-text col-lg-12">
                 <h2>Sewa Mobil di (Lokasimu) Sekarang</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <a href={'/cari-mobil'} className="btn btn-success">Mulai Sewa Mobil</a>
+                <a href={'/login'} className="btn btn-success">Mulai Sewa Mobil</a>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ const HeroSection = () => {
 
             {
               show ? (
-                <a href={'/cari-mobil'} className="btn btn-success">Mulai Sewa Mobil</a>
+                <a href={'/login'} className="btn btn-success">Mulai Sewa Mobil</a>
               ) : null
             }
 
