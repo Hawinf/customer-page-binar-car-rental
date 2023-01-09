@@ -40,6 +40,7 @@ const Login = () => {
             .catch((err) => {
                 console.log(err.message)
                 alert('You Have To Register')
+                Navigate('/register')
             })
     }
 
@@ -57,13 +58,13 @@ const Login = () => {
                     </div>
                     <div className='kartu-email'>
                         <p className='judul-email'>Password</p>
-                        <input onChange={handlePassword} placeholder='Min 6 Character' className='kotak-input w-100' />
+                        <input onChange={handlePassword} placeholder='Min 6 Character' type='password'  className='kotak-input w-100' />
                     </div>
                     <div className='tombol'>
                         <button onClick={handleLogin} className='btn btn-success w-100 tombol-1'>Sign In</button>
                     </div>
                     <p className='text-center'>Dont have an account?
-                        <Link to={'/register'}>Sign Up for free</Link>   
+                        <Link to={'/register'}> Sign Up for free</Link>   
                     </p>
                 </div> 
             </div>

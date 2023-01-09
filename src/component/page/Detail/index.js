@@ -6,11 +6,13 @@ import Footer from '../HomePage/footer'
 import Fiuser from './fi_users.png';
 import LogoCalender from './fi_calendar.png'
 import Navbar from "../HomePage/navbar";
+import MyCalendar from './Calendar';
 import './style.css'
 import { Card } from 'reactstrap';
 
 
 const Detail = () => {
+ 
 
   
   const[detail, setDetail] = useState({});
@@ -99,12 +101,16 @@ const Detail = () => {
                       </div>
 
                    {/* Dibawah ini calender */}
+                  
                       <div className='calender'>
                           <h5 className='tittle-calender'>Tentukan lama sewa mobil (Max. 7 Hari)</h5>
                           <div className='calender-box'>
                               <div className='calender-text'>Pilih tanggal mulai dan tanggal akhir sewa</div>
                               <img src={LogoCalender}/>
                           </div>
+
+                        
+
                       </div>
 
                       <div className='pb-5 d-flex harga'>

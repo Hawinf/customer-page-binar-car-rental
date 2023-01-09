@@ -7,6 +7,8 @@ import CariMobil from './component/page/CariMobil'
 import Detail from "./component/page/Detail";
 import Login from "./component/page/Login";
 import Register from "./component/page/Register";
+import ProtectedRoute from "./component/page/ProtectedPage";
+
 
 
 
@@ -20,10 +22,12 @@ function App() {
       
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/cari-mobil" element={<CariMobil />} />
-        <Route path="/cari-mobil/:id" element={<Detail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route element={<ProtectedRoute />} >
+            <Route path="/cari-mobil" element={<CariMobil />} />
+            <Route path="/cari-mobil/:id" element={<Detail />} />
+        </Route>
       </Routes>
     </div>
   );

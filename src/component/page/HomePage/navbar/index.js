@@ -1,7 +1,6 @@
 import React,{ useEffect, useState } from 'react';
 // import React from 'react-router-dom';
-import { Link, useLocation } from 'react-router-dom';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import Logo from '../images/logo.png';
 import CloseButton from '../images/close.svg';
@@ -13,7 +12,22 @@ const Navbar = () => {
   const Location = useLocation(false);
   
   
+  const [isLogin, setIsLogin] = useState(false)
+  const Navigate = useNavigate()
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(!token){
+      setIsLogin(false)
+    } else {
+      setIsLogin(true)
+    }
+  })
+
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    Navigate('/');
+  }
   
 
   const RegisterToLogin = () => {
@@ -84,10 +98,19 @@ const Navbar = () => {
               <a href="#faq">FAQ</a>
             </li>
 
-        
-            <li>
-              <Link className='btn btn-success' to={'/login'}>Register</Link>
+          {
+            isLogin ? (
+              <li>
+                <Link className='btn btn-success' onClick={handleLogOut}>Log Out</Link>
             </li> 
+            ) : (
+              <li>
+              <Link className='btn btn-success' to={'/login'}>Log In</Link>
+            </li> 
+            )
+          }
+        
+            
 
             
 

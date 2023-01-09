@@ -1,7 +1,7 @@
-.wrapper-login {
-    /* margin-top: 110px; */
+/* .wrapper-login {
+    margin-top: 110px;
     width: 100vw;
-}
+} */
 .kotak-input{
     margin-bottom: 30px;
 }
@@ -25,6 +25,9 @@
     font-size: 14px;
     line-height: 20px;
     color: #FFFFFF;
+}
+.wrapper-login-right{
+    width: 100%;
 }
 
 
