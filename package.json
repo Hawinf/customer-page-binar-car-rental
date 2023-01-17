@@ -13,6 +13,7 @@
     "react-bootstrap": "^2.5.0",
     "react-calendar": "^4.0.0",
     "react-collapsible": "^2.10.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-loader-spinner": "^5.3.4",

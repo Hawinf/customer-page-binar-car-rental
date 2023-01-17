@@ -6,15 +6,44 @@ import Footer from '../HomePage/footer'
 import Fiuser from './fi_users.png';
 import LogoCalender from './fi_calendar.png'
 import Navbar from "../HomePage/navbar";
-import MyCalendar from './Calendar';
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 import './style.css'
 import { Card } from 'reactstrap';
 
 
 const Detail = () => {
- 
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
 
+  const [buttonDisabled, setButtonDisabled] = useState(true)
+ 
+  const handleCalendar = () => {
+    
+    const token = localStorage.getItem('token');
+
+    const config = {
+      headers: {
+          access_token: token,
+      },
+  };
+
+    const payload = {
+      start_rent_at: startDate,
+      finish_rent_at: endDate,
+      car_id: id
+    }
+    axios
+      .post('https://bootcamp-rent-cars.herokuapp.com/customer/order', payload, config)
+      .then((res) => {
+        console.log(res)
+        localStorage.setItem('token', res.data.access_token)
+      })
+      .catch((err) => console.log(err.message))
+  }
   
+  console.log(startDate, endDate)
+
   const[detail, setDetail] = useState({});
   let {id} = useParams();
   // console.log(id);
@@ -101,17 +130,18 @@ const Detail = () => {
                       </div>
 
                    {/* Dibawah ini calender */}
-                  
-                      <div className='calender'>
-                          <h5 className='tittle-calender'>Tentukan lama sewa mobil (Max. 7 Hari)</h5>
-                          <div className='calender-box'>
-                              <div className='calender-text'>Pilih tanggal mulai dan tanggal akhir sewa</div>
-                              <img src={LogoCalender}/>
-                          </div>
 
+                      <DatePicker className='w-100' onClick={handleCalendar}
+                        selectsRange={true}
+                        startDate={startDate}
+                        endDate={endDate}
+                        onChange={(update) => {
+                          setDateRange(update);
+                        }}
+                        isClearable={true}
+                        placeholderText='Pilih tanggal mulai dan tanggal akhir sewa'
                         
-
-                      </div>
+                      />
 
                       <div className='pb-5 d-flex harga'>
                         <h1>Total</h1>
@@ -119,7 +149,7 @@ const Detail = () => {
                       </div>
 
                       <div>
-                        <button className='btn btn-success w-100 payment-btn' disabled>
+                        <button className='btn btn-success w-100 payment-btn' onClick={handleCalendar}>
                           Lanjutkan Pembayaran
                         </button>
                       </div>
