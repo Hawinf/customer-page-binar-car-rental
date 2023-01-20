@@ -8,6 +8,7 @@ import Detail from "./component/page/Detail";
 import Login from "./component/page/Login";
 import Register from "./component/page/Register";
 import ProtectedRoute from "./component/page/ProtectedPage";
+import { DetailPayment } from "./component/page/DetailPayment";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route element={<ProtectedRoute />} >
             <Route path="/cari-mobil" element={<CariMobil />} />
             <Route path="/cari-mobil/:id" element={<Detail />} />
+            <Route path="/lakukan-pembayaran" element={<DetailPayment />} />
         </Route>
       </Routes>
     </div>

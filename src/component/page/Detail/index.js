@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React,{useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SkipBack } from 'react-feather';
 import Footer from '../HomePage/footer'
 import Fiuser from './fi_users.png';
@@ -17,6 +18,8 @@ const Detail = () => {
   const [startDate, endDate] = dateRange;
 
   const [buttonDisabled, setButtonDisabled] = useState(true)
+
+  const navigate = useNavigate()
  
   const handleCalendar = () => {
     
@@ -37,7 +40,8 @@ const Detail = () => {
       .post('https://bootcamp-rent-cars.herokuapp.com/customer/order', payload, config)
       .then((res) => {
         console.log(res)
-        localStorage.setItem('token', res.data.access_token)
+        navigate('/lakukan-pembayaran')
+        // localStorage.setItem('token', res.data.access_token)
       })
       .catch((err) => console.log(err.message))
   }
