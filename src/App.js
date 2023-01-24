@@ -9,6 +9,7 @@ import Login from "./component/page/Login";
 import Register from "./component/page/Register";
 import ProtectedRoute from "./component/page/ProtectedPage";
 import { DetailPayment } from "./component/page/DetailPayment";
+import { DetailPayment1 } from "./component/page/DetailPayment1";
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/cari-mobil" element={<CariMobil />} />
             <Route path="/cari-mobil/:id" element={<Detail />} />
             <Route path="/lakukan-pembayaran" element={<DetailPayment />} />
+            <Route path='/pembayaran-selanjutnya' element={<DetailPayment1 />} />
         </Route>
       </Routes>
     </div>

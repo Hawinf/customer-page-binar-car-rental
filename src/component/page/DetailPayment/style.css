@@ -1,3 +1,4 @@
+
 .main-wrapper  {
     background: #F1F3FF;
     padding-top: 150px;
@@ -68,4 +69,80 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 20px;
+}
+
+.judul-detail-mobil {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.deskripsi-detail-mobil {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8A8A8A;
+}
+.kotak-pembayaran {
+    padding: 10px;
+}
+.menu-pembayaran {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+.desk-menu-pembayaran {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.tipe-bank {
+    display: flex;
+}
+.desk-bank {
+    padding: 10px;
+}
+.tipe-bank .bni-bank{
+    padding: 3px 20px 3px 20px;
+    border: 1px solid #D0D0D0;
+    border-radius: 4px;
+}
+
+
+
+.deskripsi-pesanan {
+    padding: 10px;
+    
+}
+.deskripsi-total {
+    display: flex;
+    justify-content: space-between;
+}
+.pesanan-kategori {
+    color: #8A8A8A;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+
+
+
+
+
+/* Breakpoint Responsive */
+@media (max-width: 768px) {
+    .wrapper-detail-payment {
+        display: block;
+    }
+    .wrapper-pembayaran-right {
+        margin-bottom: 20px;
+    }
+    .deskripsi-order {
+        justify-content: space-between;
+    }
+}
+@media (max-width: 991px) {
+    .kotak-pembayaran {
+        margin-bottom: 10px;
+    }
 }

@@ -1,0 +1,21 @@
+.top-navbar {
+    background: #F1F3FF;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+.top-button-sign {
+    display: flex;
+}
+.top-button-navbar {
+    display: flex;
+    justify-content: space-between;
+}
+.top-button-ahead {
+    display: flex;
+}
+.top-button-ahead img {
+    width: 18px;
+    height: 1px;
+    margin-top: 14px;
+    margin-left: 7px;
+}
