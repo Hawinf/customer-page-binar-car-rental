@@ -4,6 +4,7 @@ import Footer from '../HomePage/footer';
 import BackSign from '../fi_arrow-left.png';
 import Rectangle36 from '../Rectangle_36.jpg'
 import './style.css';
+import { Link } from 'react-router-dom';
 
 export const DetailPayment = () => {
   return (
@@ -140,8 +141,10 @@ export const DetailPayment = () => {
                     <p>Rp.233333</p>
                   </div>
 
-                  <button className='btn btn-success w-100 menu-pembayaran'>Bayar</button>
-                
+                    <Link to='/pembayaran-selanjutnya'>
+                      <button className='btn btn-success w-100 menu-pembayaran'>Bayar</button>
+                    </Link>
+
                 </div>
               </div>
             </div>
