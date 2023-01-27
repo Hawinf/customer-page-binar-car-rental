@@ -10,6 +10,7 @@ import Register from "./component/page/Register";
 import ProtectedRoute from "./component/page/ProtectedPage";
 import { DetailPayment } from "./component/page/DetailPayment";
 import { DetailPayment1 } from "./component/page/DetailPayment1";
+import { EtiketPage } from "./component/page/Etiket";
 
 
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/cari-mobil/:id" element={<Detail />} />
             <Route path="/lakukan-pembayaran" element={<DetailPayment />} />
             <Route path='/pembayaran-selanjutnya' element={<DetailPayment1 />} />
+            <Route path="/pembayaran-terkonfirmasi" element={<EtiketPage />} />
         </Route>
       </Routes>
     </div>

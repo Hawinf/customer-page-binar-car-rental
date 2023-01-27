@@ -147,7 +147,9 @@
     font-weight: 400;
     color: #8A8A8A;
 }
-
+.masukan-buktitf {
+    background-image: 'upload.png';
+}
 
 /* BREAKPOINT RESPONSIVE */
 @media (max-width: 992px) {

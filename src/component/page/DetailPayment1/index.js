@@ -8,10 +8,12 @@ import Copy from '../copy.svg';
 import Upload from '../upload.png';
 import './style.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const DetailPayment1 = () => {
 
     const [confirm, setConfirm] = useState(false);
+    const navigate = useNavigate()
 
     const handleConfirm = () => {
         setConfirm(true);
@@ -19,6 +21,7 @@ export const DetailPayment1 = () => {
 
     const handleUpload = () => {
         setConfirm(false)
+        navigate('/pembayaran-terkonfirmasi')
     }
     
   return (
@@ -55,7 +58,7 @@ export const DetailPayment1 = () => {
             <div className='container'>
                 <div className='row'>
 
-                    <div className='col-lg-8'>
+                    <div className='col-lg-12'>
                         <div className='card mb-2'>
                             <div className='kelas-pembayaran'>
                                 <div className='bagian1-kelas-pembayaran'>
@@ -70,33 +73,9 @@ export const DetailPayment1 = () => {
                     </div>
 
 
-                    <div className='col-lg-4'>
-                        <div className='card'>
-                            <div className='kelas-pembayarankanan'>
-                                <p className='judul-kanan'>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
+                    
 
-                                {
-                                    confirm ? (
-                                        <>
-                                            <p className='judul-kanan'>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
-
-                                            <p className='judul-kanan'>Upload Bukti Pembayaran</p>
-
-                                            <p className='judul-kanan'>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
-
-                                            <img src={Upload} className='upload-foto' />
-
-                                            <button className='btn btn-success w-100' onClick={handleUpload}>Upload</button>
-                                        </>
-                                    ) : <button className='btn btn-success w-100 tombol-kanan' onClick={handleConfirm}>Konfirmasi Pembayaran</button>
-                                }
-
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-lg-8'>
+                    <div className='col-lg-12'>
                         <div className='card mb-2'>
                             <div className='lakukan-transfer'>
                                 <p className='judul-lakukan-transfer'>Lakukan Transfer Ke</p>
@@ -128,8 +107,8 @@ export const DetailPayment1 = () => {
                         </div>
                     </div>
 
-                    <div className='col-lg-8'>
-                        <div className='card'>
+                    <div className='col-lg-12'>
+                        <div className='card mb-2'>
                             <div className='instruksi-pembayaran'>
                                 <h5 className='upside'>Instruksi Pembayaran</h5>
                                 <div className='cara2pembayaran'>
@@ -140,6 +119,32 @@ export const DetailPayment1 = () => {
                                 </div>
                                 <p className='langkahpembayaran'>Masukan kartu ATM, lalu PIN</p>
                                 <p className='langkahpembayaran'>Pilih menu kemudian transfer </p><p className='langkahpembayaran'>Lakukan saja apa yang anda lakukan</p><p className='langkahpembayaran'>Sekarepmu dewe</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='col-lg-12'>
+                        <div className='card mb-5'>
+                            <div className='kelas-pembayarankanan'>
+                                <p className='judul-kanan'>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
+
+                                {
+                                    confirm ? (
+                                        <>
+                                            <p className='judul-kanan'>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
+
+                                            <p className='judul-kanan'>Upload Bukti Pembayaran</p>
+
+                                            <p className='judul-kanan'>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
+
+                                            <input className='masukan-buktitf' type='file' />
+
+                                            <button className='btn btn-success w-100' onClick={handleUpload}>Upload</button>
+                                        </>
+                                    ) : <button className='btn btn-success w-100 tombol-kanan' onClick={handleConfirm}>Konfirmasi Pembayaran</button>
+                                }
+
+                                
                             </div>
                         </div>
                     </div>

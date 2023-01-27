@@ -1,0 +1,110 @@
+.pembungkus {
+    background: #f1f3ff;
+}
+.wrapper-etiket {
+    padding-top: 139px;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper-etiket .wrapper-kiri {
+    display: flex;
+}
+.baris-1 .back-sign {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.baris-2 .judul-tiket {
+    font-size: 14px;
+    font-weight: 700;
+}
+.baris-2 .order-id {
+    font-size: 12px;
+    font-weight: 400;
+}.wrapper-etiket .wrapper-kanan {
+    display: flex;
+}
+.wrapper-kanan .side-img {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background: blue;
+    margin: 5px;
+}
+.wrapper-kanan .line-img {
+    width: 20px;
+    height: 2px;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+.wrapper-kanan .langkah-ketiga {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background: blue;
+    margin: 5px;
+    color: white;
+}
+.pembayaran-berhasil {
+    margin: 40px 0px 40px 0px;
+}
+.pembayaran-berhasil .pembayaran-tengah {
+    text-align: center;
+}
+.pembayaran-tengah .logo-berhasil {
+    margin-bottom: 10px;
+}
+.pembayaran-berhasil .judul-pembayaran {
+    font-size: 14px;
+    font-weight: 700;
+}
+.pembayaran-tengah .pembayaran-invoice {
+    font-size: 14px;
+    font-weight: 400;
+}
+.pembungkus-berhasil {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.judul-invoice .invoice-1 {
+    font-size: 14px;
+    font-weight: 700;
+}
+.judul-invoice .invoice-2 {
+    font-size: 14px;
+    font-weight: 400;
+}
+.pembayaran-berhasil .unduh {
+    display: flex;
+}
+.pembungkus-berhasil .logo-unduh {
+    width: 20px;
+    height: 20px;
+}
+.unduh {
+    border: 1px solid #0D28A6;
+    padding: 10px;
+    border-radius: 5px;
+}
+.unduh .unduh-1 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 5px;
+    color: #0D28A6;
+}
+.download-buktitf {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+    .wrapper-etiket {
+        display: block;
+    }
+    .wrapper-kanan {
+        margin-left: 15px;
+    }
+}
