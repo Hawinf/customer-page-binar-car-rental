@@ -1,17 +1,14 @@
 import React from 'react'
-import Navbar from '../HomePage/navbar';
-import Footer from '../HomePage/footer';
-import Rectangle36 from '../Rectangle_36.jpg';
-import BackSign from '../fi_arrow-left.png';
-import Check from '../check.svg';
-import Copy from '../copy.svg';
-import Upload from '../upload.png';
-import './style.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Rectangle36 from './Rectangle_36.jpg';
+import BackSign from './fi_arrow-left.png';
+import Check from './check.svg';
+import Copy from './copy.svg';
 
-export const DetailPayment1 = () => {
 
+const PaymentCustomer = () => {
+    
     const [confirm, setConfirm] = useState(false);
     const navigate = useNavigate()
 
@@ -21,13 +18,12 @@ export const DetailPayment1 = () => {
 
     const handleUpload = () => {
         setConfirm(false)
-        navigate('/pembayaran-terkonfirmasi')
     }
+
     
   return (
+    
     <div className='wrapper-payment-1'>
-        
-        <Navbar />
         
             <div className='top-navbar'>
                 <div className='container'>
@@ -151,7 +147,11 @@ export const DetailPayment1 = () => {
 
                 </div>
             </div>
-        <Footer />
+        
     </div>
+    
   )
 }
+
+
+export default PaymentCustomer;

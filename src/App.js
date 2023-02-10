@@ -8,9 +8,9 @@ import Detail from "./component/page/Detail";
 import Login from "./component/page/Login";
 import Register from "./component/page/Register";
 import ProtectedRoute from "./component/page/ProtectedPage";
-import { DetailPayment } from "./component/page/DetailPayment";
-import { DetailPayment1 } from "./component/page/DetailPayment1";
 import { EtiketPage } from "./component/page/Etiket";
+import { Payment } from "./component/page/PaymentComplete";
+import PaymentCustomer from "./component/page/Payment";
 
 
 
@@ -30,9 +30,9 @@ function App() {
         <Route element={<ProtectedRoute />} >
             <Route path="/cari-mobil" element={<CariMobil />} />
             <Route path="/cari-mobil/:id" element={<Detail />} />
-            <Route path="/lakukan-pembayaran" element={<DetailPayment />} />
-            <Route path='/pembayaran-selanjutnya' element={<DetailPayment1 />} />
-            <Route path="/pembayaran-terkonfirmasi" element={<EtiketPage />} />
+            <Route path="/payment/:id" element={<Payment />} />
+            <Route path='/payment-complete' element={<PaymentCustomer />} />
+            <Route path="/payment-confirmed" element={<EtiketPage />} />
         </Route>
       </Routes>
     </div>

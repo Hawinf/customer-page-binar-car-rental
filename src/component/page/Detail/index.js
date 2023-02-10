@@ -14,6 +14,9 @@ import { Card } from 'reactstrap';
 
 
 const Detail = () => {
+  const[detail, setDetail] = useState({});
+  let {id} = useParams();
+
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
 
@@ -40,7 +43,7 @@ const Detail = () => {
       .post('https://bootcamp-rent-cars.herokuapp.com/customer/order', payload, config)
       .then((res) => {
         console.log(res)
-        navigate('/lakukan-pembayaran')
+        navigate(`/payment/${id}`)
         // localStorage.setItem('token', res.data.access_token)
       })
       .catch((err) => console.log(err.message))
@@ -48,8 +51,8 @@ const Detail = () => {
   
   console.log(startDate, endDate)
 
-  const[detail, setDetail] = useState({});
-  let {id} = useParams();
+  // const[detail, setDetail] = useState({});
+  // let {id} = useParams();
   // console.log(id);
   
   const baseUrl = 'https://bootcamp-rent-cars.herokuapp.com';

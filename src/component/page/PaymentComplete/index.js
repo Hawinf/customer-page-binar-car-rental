@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react'
+import Rectangle36 from '../Rectangle_36.jpg';
+import BackSign from '../fi_arrow-left.png';
+import { Link, useParams } from 'react-router-dom';
 import Navbar from '../HomePage/navbar';
 import Footer from '../HomePage/footer';
-import BackSign from '../fi_arrow-left.png';
-import Rectangle36 from '../Rectangle_36.jpg'
-import './style.css';
-import { Link } from 'react-router-dom';
+import './style.css'
+import axios from 'axios';
 
-export const DetailPayment = () => {
+export const Payment = () => {
+    const [detail, setDetail] = useState({})
+    const {id} = useParams()
+
+    console.log(id)
+
+    const orderCar = (id) => {
+        axios
+            .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/`,{id})
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => console.log(err.message))
+
+    }
+
+
   return (
-    <div className='first-wrapper'>
+    <>
     <Navbar />
+    <div className='first-wrapper'>
+    
       <div className='main-wrapper'>
           
 
@@ -118,7 +137,7 @@ export const DetailPayment = () => {
                   <p className='pesanan-kategori'>Kategori</p>
                   <div className='deskripsi-total'>
                       <p>Total</p>
-                      <p>Rp.35000</p>
+                      <p className='menu-pembayaran'>Rp.35000</p>
                   </div>
                   <p className='menu-pembayaran'>Harga</p>
                   <div className='deskripsi-total'>
@@ -138,11 +157,11 @@ export const DetailPayment = () => {
 
                   <div className='deskripsi-total'>
                     <p className='menu-pembayaran'>Total</p>
-                    <p>Rp.233333</p>
+                    <p className='menu-pembayaran'>Rp.233333</p>
                   </div>
 
-                    <Link to='/pembayaran-selanjutnya'>
-                      <button className='btn btn-success w-100 menu-pembayaran'>Bayar</button>
+                    <Link>
+                      <button onClick={orderCar} className='menu-pembayaran btn btn-success w-100'>Bayar</button>
                     </Link>
 
                 </div>
@@ -151,8 +170,9 @@ export const DetailPayment = () => {
         </div>
       </div>
     
-      <Footer />
+      
     </div>
-
+    <Footer />
+    </>
   )
 }
