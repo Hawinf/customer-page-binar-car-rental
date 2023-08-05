@@ -6,14 +6,15 @@ form {
     z-index: 1;
     background: #fff;
     justify-content: center;
+    padding: 10px;
 }
 .kartu {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
     color: #3c3c3c;
-    padding: 32px 2px 15px 0px;
-    
+    /* padding: 32px 2px 15px 0px; */
+    margin-top: 2px;
 }
 .kartu-1 label{
     font-weight: 300;
@@ -23,9 +24,29 @@ form {
     margin-bottom: 10px;
    
 }
+.kartu-2 label {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #3c3c3c;
+    margin-bottom: 10px;
+}
+.kartu-3 label {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #3c3c3c;
+    margin-bottom: 10px;
+}
 .judul{
     display: block;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+}
+.judul-2{
+    display: block;
+}
+.judul-3{
+    display: block;
 }
 
 .form-1 {
@@ -37,7 +58,7 @@ form {
     margin-right: 15px;
 }
 .cari-mobil {
-    margin-top: 55px;
+    margin-top: 23px;
 }
 .cari-mobil button{
     background: #5CB85F;
@@ -70,10 +91,31 @@ select:required:invalid {
   @media (max-width:1200px) {
     .form {
         flex-wrap: wrap;
-    }.judul{
-        margin-top: 30px;
-    }.form-1{
+    }
+    .form-1{
         margin-right: 0;
     }
     
+  }
+
+  @media (max-width:992px) {
+    .cari-mobil {
+        margin: 0 0 15px 0;
+    }
+  }
+
+  @media (max-width:768px) {
+    .form-1 {
+        margin-bottom: 0;
+    }
+    .kartu-3 label {
+        margin-top: 0;
+    }
+    .kartu-3 {
+        margin-bottom: 10px;
+    }
+    .cari-mobil {
+        margin-top: 25px;
+        margin-left: 2px;
+    }
   }

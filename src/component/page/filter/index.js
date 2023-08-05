@@ -65,9 +65,9 @@ const Filter = (filterData) => {
               </div>
             </div>
 
-            <div className=" col-lg-2 ">
-              <div className="kartu-1">
-                <label className="judul" htmlFor="">
+            <div className=" col-lg-2">
+              <div className="kartu-2">
+                <label className="judul-2" htmlFor="">
                   Harga
                 </label>
                 <select ref={filterData.harga} className="form-1">
@@ -80,8 +80,8 @@ const Filter = (filterData) => {
             </div>
 
             <div className=" col-lg-2">
-              <div className="kartu-1">
-                <label className="judul" htmlFor="">
+              <div className="kartu-3">
+                <label className="judul-3" htmlFor="">
                   Status
                 </label>
                 <select ref={filterData.statusOrder} className="form-1">
