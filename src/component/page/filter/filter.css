@@ -15,6 +15,10 @@ form {
     color: #3c3c3c;
     /* padding: 32px 2px 15px 0px; */
     margin-top: 2px;
+    margin-right: 2px;
+}
+.kartu-1 {
+    margin-right: 2px;
 }
 .kartu-1 label{
     font-weight: 300;
@@ -23,6 +27,9 @@ form {
     color: #3c3c3c;
     margin-bottom: 10px;
    
+}
+.kartu-2 {
+    margin-right: 2px;
 }
 .kartu-2 label {
     font-weight: 300;
@@ -123,6 +130,15 @@ select:required:invalid {
   @media (max-width:485px) {
     .cari-mobil {
         width: 221px;
+    }
+    .kartu-1 {
+        margin-top: 5px;
+    }
+    .kartu-2 {
+        margin-top: 5px;
+    }
+    .kartu-3 {
+        margin-top: 5px;
     }
   }
   
