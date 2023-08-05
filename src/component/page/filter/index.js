@@ -93,7 +93,7 @@ const Filter = (filterData) => {
             </div>
 
             <div className="col-lg-2 ">
-              <div  className="cari-mobil "  >
+              <div  className="cari-mobil"  >
                 <button className="btn btn-success" type="submit" >
                   Cari Mobil
                 </button>

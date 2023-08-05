@@ -119,3 +119,10 @@ select:required:invalid {
         margin-left: 2px;
     }
   }
+
+  @media (max-width:485px) {
+    .cari-mobil {
+        width: 221px;
+    }
+  }
+  
