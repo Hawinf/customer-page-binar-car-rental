@@ -49,6 +49,7 @@ const Login = () => {
   return (
     <div className='wrapper-login'>
         <div className='row'>
+            {/* <div className='col-lg-6 col-md-12'> */}
             <div className='col-lg-6 col-md-12'>
                 <div className='wrapper-login-left'>
                     <a href={'/'} >

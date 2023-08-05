@@ -1,12 +1,8 @@
-/* .wrapper-login {
-    margin-top: 110px;
-    width: 100vw;
-} */
 .kotak-input{
     margin-bottom: 30px;
 }
 .wrapper-login-left {
-    width: 80%;
+    /* width: 80%; */
     margin: auto;
     margin-top: 100px;
 }
@@ -26,21 +22,21 @@
     line-height: 20px;
     color: #FFFFFF;
 }
-.wrapper-login-right{
+.wrapper-login-right img{
     width: 100%;
 }
 
 
 /* BREAKPOINT RESPONSIVE */
 @media (max-width:992px) {
-    .wrapper-login-right {
-        display: none;
-    }
     .wrapper-login {
         margin-top: 0;
     }
-    .wrapper-login-left {
-        margin: 80px 100px;
+}
+
+@media (max-width:768px) {
+    .wrapper-login-right {
+        display: none;
     }
 }
 
