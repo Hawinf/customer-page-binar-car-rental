@@ -60,6 +60,7 @@ const PaymentCustomer = () => {
                         </div>
                     </div>
 
+                <div className='container'>
                     <div className='main-content'>
                             <div className='content-left'>
 
@@ -143,6 +144,7 @@ const PaymentCustomer = () => {
                                 </div>
                         </div>
                     </div>
+                </div>
 
             <Footer />
         </div>

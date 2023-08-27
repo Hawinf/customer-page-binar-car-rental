@@ -217,7 +217,7 @@ export const Payment = () => {
                     }
                   </div>
 
-                    <Link>
+                    <Link to='/payment-complete'>
                       <button className='menu-pembayaran btn btn-success w-100'>Bayar</button>
                     </Link>
 

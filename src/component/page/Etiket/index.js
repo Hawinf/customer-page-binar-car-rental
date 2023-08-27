@@ -34,7 +34,8 @@ export const EtiketPage = () => {
                         <img src={Check} className='side-img'/>
                         <p className='kanan-judul'>Bayar</p>
                         <img src={Rectangle36} className='line-img'/>
-                        <p className='langkah-ketiga'>3</p>
+                        {/* <p className='langkah-ketiga'>3</p> */}
+                        <img src={Check} className='side-img'/>
                         <p className=''>Tiket</p>
 
                     </div>

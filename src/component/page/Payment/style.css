@@ -1,7 +1,7 @@
 .main-wrapper  {
     background: #F1F3FF;
     padding-top: 150px;
-    padding-bottom: 100px;
+    padding-bottom: 10px;
 }
 .wrapper-detail-payment {
     display: flex;
@@ -66,10 +66,11 @@
     display: flex;
 }
 .content-left {
-    width: 70%;
+    width: 60%;
+    margin-right: 10px;
 }
 .content-right {
-    width: 30%;
+    width: 40%;
 }
 
 
@@ -191,9 +192,23 @@
         margin-left: 20px;
     }
 }
-
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .wrapper-detail-payment {
         display: block;
+    }
+    .order-id .order-number {
+        margin-left: 0;
+    }
+}
+@media (max-width: 576px) {
+    .main-content {
+        display: block;
+    }
+    .content-left {
+        width: 100%;
+        margin-right: 0;
+    }
+    .content-right {
+        width: 100%;
     }
 } 
