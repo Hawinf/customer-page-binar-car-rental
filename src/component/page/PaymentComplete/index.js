@@ -6,6 +6,7 @@ import Navbar from '../HomePage/navbar';
 import Footer from '../HomePage/footer';
 import './style.css'
 import axios from 'axios';
+import { useEffect } from 'react';
 
 export const Payment = () => {
     const [detail, setDetail] = useState({})
@@ -13,16 +14,25 @@ export const Payment = () => {
 
     console.log(id)
 
-    const orderCar = (id) => {
-        axios
-            .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/`,{id})
+    useEffect(() => {
+      const token = localStorage.getItem('token');
+
+      const config = {
+        headers: {
+            access_token: token,
+        }
+      }
+
+      axios
+            .get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`, config)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
+                setDetail(res.data)
             })
             .catch((err) => console.log(err.message))
 
-    }
-
+    },[])
+    console.log(detail)
 
   return (
     <>
@@ -59,27 +69,31 @@ export const Payment = () => {
 
       </div>
 
-      <div className='container'>
-        <div className='detail-order'>
-          <div className='card'>
+    {
+      !detail.length ?
+        (
+// detail awal
+        <div className='container'>
+          <div className='detail-order'>
+            <div className='card'>
               <div className='card-detail'>
                 <p className='judul-detail'>Detail Pesananmu</p>
               </div>
 
               <div className='container'>
                 <div className='row'>
-
+                
                     <div className='col-lg-3 col-md-6'>
                       <div className='tipe-mobil'>
                         <p className='judul-detail-mobil'>Tipe Mobil</p>
-                        <p className='deskripsi-detail-mobil'>Innova</p>
+                        <p className='deskripsi-detail-mobil'>{detail.name}</p>
                       </div> 
                     </div>
 
                     <div className='col-lg-3 col-md-6'>
                       <div className='kategori-mobil'>
                         <p className='judul-detail-mobil'>Kategori</p>
-                        <p className='deskripsi-detail-mobil'>1-2 Orang</p>
+                        <p className='deskripsi-detail-mobil'>{detail.category}</p>
                       </div>
                     </div>
 
@@ -102,6 +116,10 @@ export const Payment = () => {
           </div>
         </div>
       </div>
+// detail akir
+        ) : null
+    }
+      
 
       <div className='container'>
         <div className='row'>
@@ -133,7 +151,10 @@ export const Payment = () => {
             <div className='col-lg-4 col-md-12'>
               <div className='card'>
                 <div className='deskripsi-pesanan'>
-                  <h5 className='menu-pembayaran'>Nama Mobil</h5>
+                  
+                  {
+                    !detail.length ? <h5 className='menu-pembayaran'>{detail.name}</h5> : null
+                  }
                   <p className='pesanan-kategori'>Kategori</p>
                   <div className='deskripsi-total'>
                       <p>Total</p>
@@ -161,7 +182,7 @@ export const Payment = () => {
                   </div>
 
                     <Link>
-                      <button onClick={orderCar} className='menu-pembayaran btn btn-success w-100'>Bayar</button>
+                      <button className='menu-pembayaran btn btn-success w-100'>Bayar</button>
                     </Link>
 
                 </div>

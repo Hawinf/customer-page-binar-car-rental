@@ -19,15 +19,14 @@ const Detail = () => {
 
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+  // console.log(startDate, endDate)
 
   const [buttonDisabled, setButtonDisabled] = useState(true)
 
   const navigate = useNavigate()
  
   const handleCalendar = () => {
-    
     const token = localStorage.getItem('token');
-
     const config = {
       headers: {
           access_token: token,
@@ -60,26 +59,26 @@ const Detail = () => {
   const fetch = useRef(true);
 
   const getDetail = (id) => {
-    axios.get(`${baseUrl}/customer/car/${id}`)
-    .then((response) => {
-      // console.log(detail)
-      // console.log(response.data)
-      setDetail(response.data)
-    })
-    .catch((error) => 
-    console.log(error)
+    axios
+      .get(`${baseUrl}/customer/car/${id}`)
+      .then((response) => {
+          setDetail(response.data)
+      })
+    .catch((error) => console.log(error)
     )
-  };
+  }
 
   useEffect(() => {
     if(fetch.current) {
       fetch.current = false;
       getDetail(id)
-      
-    }
+    };
+    
   },[id]);
 
+  console.log(getDetail(id))
   console.log("ini kategori", detail.category)
+  
   return (
     <div className='Detail' >
       <Navbar />

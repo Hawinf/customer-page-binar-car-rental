@@ -17,40 +17,7 @@ const CariMobil = () => {
   const [test, setTest] = useState("test");
   const [emptyData, setEmptyData] = useState(false)
 
-  // const dataCars = [
-  //     {
-  //         id: 802,
-  //         category: 4,
-  //         createdAt: '2022-09-30T14:32:02.159Z',
-  //         finish_rent_at: null,
-  //         image: 'https://picsum.photos/id/1019/270/160',
-  //         name: 'Innova',
-  //         price: 50000,
-  //         start_rent_at: null,
-  //         status: true,
-  //         updatedAt: null,
-  //         description: 'lorem ipsum dollar amet'
-  //     },
-  //     {
-  //         id: 20,
-  //         category: 3,
-  //         createdAt: '2022-08-30T14:32:02.159Z',
-  //         finish_rent_at: null,
-  //         image: 'https://picsum.photos/id/1019/270/160',
-  //         name: 'Pajero',
-  //         price: 50000,
-  //         start_rent_at: null,
-  //         status: true,
-  //         updatedAt: null,
-  //         description: 'lorem ipsum dollar amet'
-  //     }
-  // ];
-
-  // const getCars = () => {
-  //     fetch('https://bootcamp-rent-car.herokuapp.com/admin/car')
-  //         .then((response) => response.json())
-  //         .then((data) => setCars(dataCars));
-  // }
+  
   const baseUrl = "https://bootcamp-rent-cars.herokuapp.com";
 
   const getCars = () => {
