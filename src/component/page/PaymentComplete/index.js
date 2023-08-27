@@ -9,12 +9,34 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 export const Payment = () => {
-    const [detail, setDetail] = useState({})
+    const [detail, setDetail] = useState({});
+    const [detailOrder, setDetailOrder] = useState({});
     const {id} = useParams()
 
     console.log(id)
 
+    const getDetailOrder = () => {
+      const token = localStorage.getItem('token');
+
+      const config = {
+        headers: {
+            access_token: token,
+        }
+      }
+
+      axios
+            .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
+            .then((res) => {
+                console.log(res,'detailsOrder')
+                setDetailOrder(res.data)
+            })
+            .catch((err) => console.log(err.message))
+    }
+
+
+
     useEffect(() => {
+      getDetailOrder();
       const token = localStorage.getItem('token');
 
       const config = {
@@ -70,7 +92,7 @@ export const Payment = () => {
       </div>
 
     {
-      !detail.length ?
+      !detail.length && !detailOrder.length ?
         (
 // detail awal
         <div className='container'>
@@ -100,14 +122,14 @@ export const Payment = () => {
                     <div className='col-lg-3 col-md-6'>
                       <div className='tanggal-mulai'>
                         <p className='judul-detail-mobil'>Tanggal Mulai Sewa</p>
-                        <p className='deskripsi-detail-mobil'>1 - 2 Agustus</p>
+                        <p className='deskripsi-detail-mobil'>{detailOrder.start_rent_at}</p>
                       </div>
                     </div>
 
                     <div className='col-lg-3 col-md-6'>
                       <div className='tanggal-akhir'>
                         <p className='judul-detail-mobil'>Tanggal Akhir Sewa</p>
-                        <p className='deskripsi-detail-mobil'>1 - 2 September</p>
+                        <p className='deskripsi-detail-mobil'>{detailOrder.finish_rent_at}</p>
                       </div>
                     </div>
 
@@ -153,17 +175,29 @@ export const Payment = () => {
                 <div className='deskripsi-pesanan'>
                   
                   {
-                    !detail.length ? <h5 className='menu-pembayaran'>{detail.name}</h5> : null
+                    !detail.length ? 
+                      <>
+                        <h5 className='menu-pembayaran'>{detail.name}</h5>
+                        <p className='pesanan-kategori'>{detail.category}</p> 
+                      </>
+                    : null
                   }
-                  <p className='pesanan-kategori'>Kategori</p>
+                  
                   <div className='deskripsi-total'>
                       <p>Total</p>
-                      <p className='menu-pembayaran'>Rp.35000</p>
+                      {
+                        !detailOrder.length ? <p className='menu-pembayaran'>{detailOrder.total_price}</p> : null
+                      }
                   </div>
                   <p className='menu-pembayaran'>Harga</p>
                   <div className='deskripsi-total'>
-                    <p className='desk-menu-pembayaran'>Sewa Mobil Rp.500.000 x 7 Hari</p>
-                    <p>Rp.35000</p>
+                    {
+                      !detail.length ? <p className='desk-menu-pembayaran'>Sewa Mobil {detail.price} x Total Hari Sewa</p> : null
+                    }
+                    
+                    {
+                      !detailOrder.length ? <p className='menu-pembayaran'>{detailOrder.total_price}</p> : null
+                    }
                   </div>
 
                   <p className='menu-pembayaran'>Biaya Lainya</p>
@@ -178,7 +212,9 @@ export const Payment = () => {
 
                   <div className='deskripsi-total'>
                     <p className='menu-pembayaran'>Total</p>
-                    <p className='menu-pembayaran'>Rp.233333</p>
+                    {
+                      !detailOrder.length ? <p className='menu-pembayaran'>{detailOrder.total_price}</p> : null
+                    }
                   </div>
 
                     <Link>
