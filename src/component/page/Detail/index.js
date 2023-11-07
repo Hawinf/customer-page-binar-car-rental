@@ -14,6 +14,7 @@ import { Card } from 'reactstrap';
 
 
 const Detail = () => {
+  
   const[detail, setDetail] = useState({});
   let {id} = useParams();
 
@@ -39,7 +40,8 @@ const Detail = () => {
       car_id: id
     }
     axios
-      .post('https://bootcamp-rent-cars.herokuapp.com/customer/order', payload, config)
+    // https://api-car-rental.binaracademy.org/customer/order
+      .post('https://api-car-rental.binaracademy.org/customer/order', payload, config)
       .then((res) => {
         console.log(res)
         navigate(`/payment/${id}`)
@@ -49,12 +51,8 @@ const Detail = () => {
   }
   
   console.log(startDate, endDate)
-
-  // const[detail, setDetail] = useState({});
-  // let {id} = useParams();
-  // console.log(id);
   
-  const baseUrl = 'https://bootcamp-rent-cars.herokuapp.com';
+  const baseUrl = 'https://api-car-rental.binaracademy.org';
 
   const fetch = useRef(true);
 
@@ -62,6 +60,7 @@ const Detail = () => {
     axios
       .get(`${baseUrl}/customer/car/${id}`)
       .then((response) => {
+          console.log(response)
           setDetail(response.data)
       })
     .catch((error) => console.log(error)
@@ -73,11 +72,11 @@ const Detail = () => {
       fetch.current = false;
       getDetail(id)
     };
-    
+    // console.log(res)
   },[id]);
 
-  console.log(getDetail(id))
-  console.log("ini kategori", detail.category)
+  // console.log(getDetail(id))
+  // console.log("ini kategori", detail.category)
   
   return (
     <div className='Detail' >
@@ -164,22 +163,6 @@ const Detail = () => {
 
                   ) : null
                 }
-                
-{/*  ini menggunakan optional chaining
-                <div className='col-lg-5 '>
-                  <div className='card-2'>
-                    <img src={detail?.image} className="px-3" alt="image-error" />
-                    <h1>{detail?.name}</h1>
-                      <div className='kapasitas'>
-                        <img src={Fiuser} alt="fiuser" />
-                        <p>nanti</p>
-                      </div>
-                      <div className='pb-5 d-flex harga'>
-                        <h1>Total</h1>
-                        <h1>Rp. {detail?.price?.toLocaleString()?.replace(/,/g, ".")} / Hari</h1>
-                      </div>
-                    </div>
-                </div> */}
 
               
             </div>

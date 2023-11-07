@@ -31,7 +31,8 @@ const Login = () => {
         }
 
         axios
-            .post('https://bootcamp-rent-cars.herokuapp.com/customer/auth/login', payload)
+            .post('https://api-car-rental.binaracademy.org/customer/auth/login', payload)
+            // .post('https://bootcamp-rent-cars.herokuapp.com/customer/auth/login', payload)
             .then((res) => {
                 console.log(res) ;
                 localStorage.setItem('token', res.data.access_token)

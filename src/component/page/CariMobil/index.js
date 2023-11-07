@@ -13,12 +13,11 @@ import Navbar from "../HomePage/navbar";
 const CariMobil = () => {
   const [cars, setCars] = useState([]);
   const [inputSample, setInputSample] = useState("");
-  // const [profile, setProfile] = useState({});
   const [test, setTest] = useState("test");
   const [emptyData, setEmptyData] = useState(false)
 
   
-  const baseUrl = "https://bootcamp-rent-cars.herokuapp.com";
+  const baseUrl = "https://api-car-rental.binaracademy.org";
 
   const getCars = () => {
     Axios.get(`${baseUrl}/cars`)
@@ -28,28 +27,6 @@ const CariMobil = () => {
       })
       .catch((error) => console.log(error));
   };
-
-  // const getProfile = () => {
-
-  //     axios
-  //         .get(`${baseUrl}/profile`)
-  //         .then((response) => {
-  //         setProfile(response.data)
-  // })
-  //         .catch((error) => console.log(error));
-  //         // console.log(response)
-  // };
-
-  // const fetch = useRef(true);
-
-  // useEffect(() => {
-  //     if(fetch.current){
-  //         fetch.current = false
-  //     getCars();
-  //     // getProfile()
-  //     // console.log(cars)
-  // }
-  // },[]);
 
   const submitData = (e) => {
     e.preventDefault();
@@ -144,10 +121,6 @@ const CariMobil = () => {
 
   const getData = (e) => {
     e.preventDefault();
-    // console.log("nama", namaMobil.current.value);
-    // console.log("kategori", category.current.value);
-    // console.log("harga", harga.current.value);
-    // console.log("status", statusOrder.current.value);
 
     const params = {
       name: namaMobil.current.value,
@@ -158,23 +131,11 @@ const CariMobil = () => {
       isRented: statusOrder.current.value
     }
 
-    // Axios.get(`${baseUrl}/cars?name=${namaMobil.current.value}&category=${category.current.value}&price=${harga.current.value}&status=${statusOrder.current.value}`)
-
-    // const descending = (data) => {
-    //   return data.sort((a, b) => b.id - a.id)
-    // }
 
     setEmptyData(false)
     setCars([]); 
 
     Axios.get(`${baseUrl}/customer/v2/car?${queryData(params)}`)
-
-
-    // Axios.get(`${baseUrl}/cars?` + 
-    //           `${namaMobil.current.value ? `name=${namaMobil.current.value}`: ""}` 
-    //           + `${category.current.value && `&category=${category.current.value}`}`
-    //           + `${harga.current.value && `&price=${harga.current.value}`}`
-    //           + `${statusOrder.current.value && `&status=${statusOrder.current.value}`}`
     
 
       .then((response) => {
@@ -183,14 +144,7 @@ const CariMobil = () => {
         }else {
           setEmptyData(true)
         }
-        
-        
-          
-        // } else {
-        //   setEmptyData(true)
-         
-        // }
-        // }
+ 
       })
       .catch((error) => console.log(error));
   };
@@ -198,7 +152,6 @@ const CariMobil = () => {
   const inputSamplePost = useRef();
   const inputSampleEdit = useRef();
   const inputSampleDelete = useRef();
-  // console.log(emptyData)
 
   const filterData = {
     getData,
@@ -249,49 +202,6 @@ const CariMobil = () => {
             < Footer />
         </div>
       </div>
-
-        
-
-        {/* <form className="form d-flex flex-column" onSubmit={submitData}>
-                    <label htmlFor="">Input Data</label>
-                    <div className="d-inline-flex">
-                        <input type="text" classname="px-2" ref={inputSamplePost} />
-                        
-                        <button className="btn btn-success" type="submit">Submit</button>
-                    </div>
-                </form> 
-
-        <div className="form d-flex flex-column">
-                    <label htmlFor="" style={{ marginBottom: 10 }} >
-                    Edit Data Object Base on ID 
-                    </label>
-                    <div className="d-inline-flex">
-                        <input type="number" classname="px-2" ref={inputSampleEdit} />
-                        <button
-                            style={{marginLeft: 10}}
-                            className="btn btn-success"
-                            type="button"
-                            onClick={submitEditData} >
-                                Submit
-                            </button>
-                    </div>
-                </div> 
-
-              <div className="form d-flex flex-column">
-                    <label htmlFor="" style={{ marginBottom: 10 }} >
-                    Delete Data Object Base on ID 
-                    </label>
-                    <div className="d-inline-flex">
-                        <input type="number" classname="px-2" ref={inputSampleDelete} />
-                        <button
-                            style={{marginLeft: 10}}
-                            className="btn btn-success"
-                            type="button"
-                            onClick={submitDeleteData} >
-                                Submit
-                            </button>
-                    </div>
-                </div> */}
       </div>
     </div>
   );
