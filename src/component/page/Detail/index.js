@@ -43,8 +43,8 @@ const Detail = () => {
     // https://api-car-rental.binaracademy.org/customer/order
       .post('https://api-car-rental.binaracademy.org/customer/order', payload, config)
       .then((res) => {
-        console.log(res)
-        navigate(`/payment/${id}`)
+        // console.log(res)
+        navigate(`/payment/${res.data.id}`)
         // localStorage.setItem('token', res.data.access_token)
       })
       .catch((err) => console.log(err.message))

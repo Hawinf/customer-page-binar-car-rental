@@ -7,36 +7,38 @@ import Footer from '../HomePage/footer';
 import './style.css'
 import axios from 'axios';
 import { useEffect } from 'react';
+// import mo
 
 export const Payment = () => {
     const [detail, setDetail] = useState({});
     const [detailOrder, setDetailOrder] = useState({});
     const {id} = useParams()
 
-    console.log(id)
+    console.log(id, 'ini order id')
+    console.log(detail, 'ini detail')
 
-    const getDetailOrder = () => {
-      const token = localStorage.getItem('token');
+    // const getDetailOrder = () => {
+    //   const token = localStorage.getItem('token');
 
-      const config = {
-        headers: {
-            access_token: token,
-        }
-      }
+    //   const config = {
+    //     headers: {
+    //         access_token: token,
+    //     }
+    //   }
 
-      axios
-            .get(`https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}`, config)
-            .then((res) => {
-                console.log(res,'detailsOrder')
-                setDetailOrder(res.data)
-            })
-            .catch((err) => console.log(err.message))
-    }
+    //   axios
+    //         .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
+    //         .then((res) => {
+    //             console.log(res,'detailsOrder')
+                
+    //         })
+    //         .catch((err) => console.log(err.message))
+    // }
 
 
 
     useEffect(() => {
-      getDetailOrder();
+      // getDetailOrder();
       const token = localStorage.getItem('token');
 
       const config = {
@@ -46,15 +48,17 @@ export const Payment = () => {
       }
 
       axios
-            .get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`, config)
+            .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
             .then((res) => {
-                // console.log(res)
-                setDetail(res.data)
+                console.log(res.data)
+                setDetail(res.data.Car)
+                setDetailOrder(res.data)
             })
             .catch((err) => console.log(err.message))
 
     },[])
-    console.log(detail)
+    
+    
 
   return (
     <>
@@ -97,7 +101,7 @@ export const Payment = () => {
 // detail awal
         <div className='container'>
           <div className='detail-order'>
-            <div className='card'>
+            <div className='card mt-4'>
               <div className='card-detail'>
                 <p className='judul-detail'>Detail Pesananmu</p>
               </div>
@@ -217,7 +221,7 @@ export const Payment = () => {
                     }
                   </div>
 
-                    <Link to='/payment-complete'>
+                    <Link to={`/payment-complete/${id}`}>
                       <button className='menu-pembayaran btn btn-success w-100'>Bayar</button>
                     </Link>
 
@@ -233,3 +237,36 @@ export const Payment = () => {
     </>
   )
 }
+
+
+// export const Payment = () => {
+//   const {id} = useParams();
+//   console.log(id, 'ini order id')
+
+//       useEffect(() => {
+//       // getDetailOrder();
+//       const token = localStorage.getItem('token');
+
+//       const config = {
+//         headers: {
+//             access_token: token,
+//         }
+//       }
+
+//       axios
+
+//             .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
+//             .then((res) => {
+//                 console.log(res)
+//             })
+//             .catch((err) => console.log(err.message))
+
+//     },[])
+
+//   return (
+//     <div>
+//       <h1>Payment</h1>
+//     </div>
+//   );
+// };
+

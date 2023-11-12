@@ -80,6 +80,8 @@
 
 .kelas-pembayaran {
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .kelas-pembayaran .judul {
     font-size: 14px;

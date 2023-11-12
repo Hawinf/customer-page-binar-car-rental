@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Navbar from '../HomePage/navbar';
 import Footer from '../HomePage/footer';
@@ -8,9 +8,11 @@ import Rectangle36 from '../Rectangle_36.jpg';
 import BackSign from '../fi_arrow-left.png';
 import Check from '../check.svg';
 import Copy from '../copy.svg';
+import Countdown from 'react-countdown';
 import './style.css'
 
 const PaymentCustomer = () => {
+    // Navigate = useNavigate();
 
     const {id} = useParams()
     
@@ -27,6 +29,20 @@ const PaymentCustomer = () => {
 
     console.log(id)
 
+    // handle the countdown
+    const Completionist = () => <span>Payment Failed</span>;
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+        if (completed) {
+          // Render a completed state
+          return <Completionist /> ;
+                // Navigate('/')
+
+        } else {
+          // Render a countdown
+          return <span>{hours}:{minutes}:{seconds}</span>;
+        }
+      };
+
     
   return (
         <div>
@@ -37,7 +53,7 @@ const PaymentCustomer = () => {
                             <div className='wrapper-detail-payment'>
                                 <div className='wrapper-pembayaran-right'>
                                     <img src={BackSign} />
-                                    <a href='/cari-mobil' className='button-back'>BCA Transfer</a>
+                                    <a href={`/payment/${id}`} className='button-back'>BCA Transfer</a>
                                 </div>
                                 <div className='wrapper-pembayaran-left'>
                                 <div className='method-payment'>
@@ -57,7 +73,7 @@ const PaymentCustomer = () => {
                                 </div>
                             </div>
                             <div className='order-id'>
-                                <p className='order-number'>Order ID</p>
+                                <p className='order-number'>{id}</p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +89,10 @@ const PaymentCustomer = () => {
                                             <p className='judul-1'>Rabu, 19 Mei 2022 jam 13.00 WIB</p>
                                         </div>
                                         <div className='bagian2-kelas-pembayaran'>
-
+                                        <Countdown
+                                            date={Date.now() + 100000}
+                                            renderer={renderer}
+                                        />,
                                         </div>
                                     </div>
                                 </div>

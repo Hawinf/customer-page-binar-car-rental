@@ -31,7 +31,7 @@ function App() {
             <Route path="/cari-mobil" element={<CariMobil />} />
             <Route path="/cari-mobil/:id" element={<Detail />} />
             <Route path="/payment/:id" element={<Payment />} />
-            <Route path='/payment-complete' element={<PaymentCustomer />} />
+            <Route path='/payment-complete/:id' element={<PaymentCustomer />} />
             <Route path="/payment-confirmed" element={<EtiketPage />} />
         </Route>
       </Routes>
