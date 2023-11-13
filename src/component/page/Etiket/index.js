@@ -10,6 +10,8 @@ import Rectangle38 from '../Rectangle38.png'
 import './style.css'
 
 export const EtiketPage = () => {
+    const prove = localStorage.getItem('prove')
+    console.log(prove)
   return (
     <>
         <Navbar />
@@ -65,7 +67,7 @@ export const EtiketPage = () => {
                         </div>
 
                         <div className='download-buktitf'>
-                            <img src={Rectangle38} />
+                            <img src={prove} />
                         </div>
                     </div>
                 </div>

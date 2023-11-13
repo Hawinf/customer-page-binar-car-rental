@@ -66,6 +66,7 @@ const PaymentCustomer = () => {
           .then((res) => {
             console.log(res)
             setFile(res.data.slip);
+            localStorage.setItem('prove', res.data.slip)
             Navigate(`/payment-confirmed/${id}`)
           })
           .catch((err) => console.log(err.message));
