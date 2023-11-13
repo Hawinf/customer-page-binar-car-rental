@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Rectangle36 from '../Rectangle_36.jpg';
 import BackSign from '../fi_arrow-left.png';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../HomePage/navbar';
 import Footer from '../HomePage/footer';
 import './style.css'
@@ -13,6 +13,7 @@ export const Payment = () => {
     const [detail, setDetail] = useState({});
     const [detailOrder, setDetailOrder] = useState({});
     const {id} = useParams()
+    
 
     console.log(id, 'ini order id')
     console.log(detail, 'ini detail')

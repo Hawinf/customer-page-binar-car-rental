@@ -16,6 +16,7 @@ const PaymentCustomer = () => {
     // Navigate = useNavigate();
     const [file, setFile] = useState(null);
     const {id} = useParams();
+    const Navigate = useNavigate();
     
     const [confirm, setConfirm] = useState(false);
     const navigate = useNavigate()
@@ -56,9 +57,7 @@ const PaymentCustomer = () => {
         };
     
         const formData = new FormData();
-        // console.log(formData);
         formData.append("slip", file);
-        // console.log(formData);
         
         // Old version API Link
         // https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}
@@ -66,7 +65,8 @@ const PaymentCustomer = () => {
           .put(`https://api-car-rental.binaracademy.org/customer/order/${id}/slip`, formData, config)
           .then((res) => {
             console.log(res)
-            // setFile(res.data.slip)
+            setFile(res.data.slip);
+            Navigate(`/payment-confirmed/${id}`)
           })
           .catch((err) => console.log(err.message));
       };

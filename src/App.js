@@ -32,7 +32,7 @@ function App() {
             <Route path="/cari-mobil/:id" element={<Detail />} />
             <Route path="/payment/:id" element={<Payment />} />
             <Route path='/payment-complete/:id' element={<PaymentCustomer />} />
-            <Route path="/payment-confirmed" element={<EtiketPage />} />
+            <Route path="/payment-confirmed/:id" element={<EtiketPage />} />
         </Route>
       </Routes>
     </div>
