@@ -10,11 +10,12 @@ import Check from '../check.svg';
 import Copy from '../copy.svg';
 import Countdown from 'react-countdown';
 import './style.css'
+import axios from 'axios';
 
 const PaymentCustomer = () => {
     // Navigate = useNavigate();
-
-    const {id} = useParams()
+    const [file, setFile] = useState(null);
+    const {id} = useParams();
     
     const [confirm, setConfirm] = useState(false);
     const navigate = useNavigate()
@@ -23,11 +24,55 @@ const PaymentCustomer = () => {
         setConfirm(true);
     }
 
-    const handleUpload = () => {
-        setConfirm(false)
+    const handleImage = (e) => {
+        setFile(e.target.files[0]);
     }
 
-    console.log(id)
+    // const handleUpload = () => {
+
+    //     const token = localStorage.getItem('token');
+    //         const config = {
+    //             header: {
+    //                 access_token: token,
+    //             },
+    //     };
+
+    //     const formData = new FormData();
+    //         formData.append('slip', file)
+
+    //     axios
+    //         .put(`https://api-car-rental.binaracademy.org/customer/order/${id}/slip`, config, formData)
+    //         .then((res) => {
+    //             console.log(res)
+    //         })
+    //         .catch((err) => console.log(err))
+    // }
+    // start
+    const handleUpload = () => {
+        const config = {
+          headers: {
+            access_token: localStorage.getItem("token"),
+          },
+        };
+    
+        const formData = new FormData();
+        // console.log(formData);
+        formData.append("slip", file);
+        // console.log(formData);
+        
+        // Old version API Link
+        // https://bootcamp-rent-cars.herokuapp.com/customer/order/${id}
+        axios
+          .put(`https://api-car-rental.binaracademy.org/customer/order/${id}/slip`, formData, config)
+          .then((res) => {
+            console.log(res)
+            // setFile(res.data.slip)
+          })
+          .catch((err) => console.log(err.message));
+      };
+    // end
+
+    console.log(id,'kiri id',  'kanan slip',file)
 
     // handle the countdown
     const Completionist = () => <span>Payment Failed</span>;
@@ -73,7 +118,7 @@ const PaymentCustomer = () => {
                                 </div>
                             </div>
                             <div className='order-id'>
-                                <p className='order-number'>{id}</p>
+                                <p className='order-number'>Your Order ID : {id}</p>
                             </div>
                         </div>
                     </div>
@@ -154,7 +199,7 @@ const PaymentCustomer = () => {
                                                     <p className='judul-kanan'>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
                                                     <p className='judul-kanan'>Upload Bukti Pembayaran</p>
                                                     <p className='judul-kanan'>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
-                                                    <input className='masukan-buktitf' type='file' />
+                                                    <input className='masukan-buktitf' type='file' onChange={handleImage} />
                                                     <button className='btn btn-success w-100' onClick={handleUpload}>Upload</button>
                                                 </>
                                             ) : <button className='btn btn-success w-100 tombol-kanan' onClick={handleConfirm}>Konfirmasi Pembayaran</button>
