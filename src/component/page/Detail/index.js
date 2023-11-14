@@ -16,6 +16,7 @@ import { Card } from 'reactstrap';
 const Detail = () => {
   
   const[detail, setDetail] = useState({});
+  const [topembayaran, setToPembayaran] = useState(false);
   let {id} = useParams();
 
   const [dateRange, setDateRange] = useState([null, null]);
@@ -74,6 +75,10 @@ const Detail = () => {
     };
     // console.log(res)
   },[id]);
+
+  const lanjutPembayaran = () => {
+    setToPembayaran(true);
+  }
 
   // console.log(getDetail(id))
   // console.log("ini kategori", detail.category)
@@ -154,9 +159,9 @@ const Detail = () => {
                       </div>
 
                       <div>
-                        <button className='btn btn-success w-100 payment-btn' onClick={handleCalendar}>
-                          Lanjutkan Pembayaran
-                        </button>
+                          <button className='btn btn-success w-100 payment-btn' onClick={handleCalendar}>
+                            Lanjutkan Pembayaran
+                          </button>
                       </div>
                     </div>
                 </div>

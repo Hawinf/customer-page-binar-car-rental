@@ -30,6 +30,7 @@ export const Payment = () => {
       setBni(false)
       setBayar(true);
       setPilihBank(false);
+      localStorage.setItem('BCA', bca)
     }
     const handleBri = () => {
       setBri(true);
