@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Rectangle36 from '../Rectangle_36.jpg';
 import BackSign from '../fi_arrow-left.png';
+import Check from '../check.png';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../HomePage/navbar';
 import Footer from '../HomePage/footer';
@@ -12,31 +13,30 @@ import { useEffect } from 'react';
 export const Payment = () => {
     const [detail, setDetail] = useState({});
     const [detailOrder, setDetailOrder] = useState({});
+    const [bca, setBca] = useState(false);
+    const [bri, setBri] = useState(false);
+    const [bni, setBni] = useState(false);
     const {id} = useParams()
     
 
     console.log(id, 'ini order id')
     console.log(detail, 'ini detail')
 
-    // const getDetailOrder = () => {
-    //   const token = localStorage.getItem('token');
-
-    //   const config = {
-    //     headers: {
-    //         access_token: token,
-    //     }
-    //   }
-
-    //   axios
-    //         .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
-    //         .then((res) => {
-    //             console.log(res,'detailsOrder')
-                
-    //         })
-    //         .catch((err) => console.log(err.message))
-    // }
-
-
+    const handleBca = () => {
+      setBca(true);
+      setBri(false);
+      setBni(false)
+    }
+    const handleBri = () => {
+      setBri(true);
+      setBca(false);
+      setBni(false);
+    }
+    const handleBni = () => {
+      setBni(true);
+      setBca(false);
+      setBri(false);
+    }
 
     useEffect(() => {
       // getDetailOrder();
@@ -157,19 +157,30 @@ export const Payment = () => {
                   <h5 className='menu-pembayaran'>Pilih Bank Transfer</h5>
                   <p className='desk-menu-pembayaran'>Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking</p>
 
-                  <div className='tipe-bank'>
-                    <p className='bni-bank'>BCA</p>
-                    <p className='desk-bank desk-menu-pembayaran'>BCA Transfer</p>
-                  </div>
+                    {/* <button > */}
+                      <div onClick={handleBca} className='tipe-bank'>
+                        <p className='bni-bank'>BCA</p>
+                        <p className='desk-bank desk-menu-pembayaran'>BCA Transfer</p>
+                        {
+                          bca ? <img className='ceklist' src={Check} /> : null
+                        }
+                      </div>
+                    {/* </button> */}
 
-                  <div className='tipe-bank'>
+                  <div onClick={handleBni} className='tipe-bank'>
                     <p className='bni-bank'>BNI</p>
                     <p className='desk-bank desk-menu-pembayaran'>BNI Transfer</p>
+                    {
+                          bni ? <img className='ceklist' src={Check} /> : null
+                    }
                   </div>
 
-                  <div className='tipe-bank'>
+                  <div onClick={handleBri} className='tipe-bank'>
                     <p className='bni-bank'>BRI</p>
                     <p className='desk-bank desk-menu-pembayaran'>BRI Transfer</p>
+                    {
+                          bri ? <img className='ceklist' src={Check} /> : null
+                    }
                   </div>
                 </div>
               </div>
