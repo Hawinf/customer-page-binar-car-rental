@@ -16,6 +16,8 @@ export const Payment = () => {
     const [bca, setBca] = useState(false);
     const [bri, setBri] = useState(false);
     const [bni, setBni] = useState(false);
+    const [bayar, setBayar] = useState(false);
+    const [pilihBank, setPilihBank] = useState(false);
     const {id} = useParams()
     
 
@@ -26,16 +28,32 @@ export const Payment = () => {
       setBca(true);
       setBri(false);
       setBni(false)
+      setBayar(true);
+      setPilihBank(false);
     }
     const handleBri = () => {
       setBri(true);
       setBca(false);
       setBni(false);
+      setBayar(true);
+      setPilihBank(false);
     }
     const handleBni = () => {
       setBni(true);
       setBca(false);
       setBri(false);
+      setBayar(true);
+      setPilihBank(false);
+    }
+    const handleBayar = () => {
+      if(handleBca && handleBni && handleBri == false) {
+        return 'Pilih Bank Pembayaran'
+      } else {
+        setBayar(true)
+      }
+    }
+    const handleBank = () => {
+      setPilihBank(true)
     }
 
     useEffect(() => {
@@ -156,7 +174,9 @@ export const Payment = () => {
                 <div className='kotak-pembayaran'>
                   <h5 className='menu-pembayaran'>Pilih Bank Transfer</h5>
                   <p className='desk-menu-pembayaran'>Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking</p>
-
+                  {
+                    pilihBank ? <p className='perhatian'>Mohon Untuk Memilih Bank Transfer Untuk Melanjutkan Pembayaran</p> : null
+                  }
                     {/* <button > */}
                       <div onClick={handleBca} className='tipe-bank'>
                         <p className='bni-bank'>BCA</p>
@@ -232,10 +252,14 @@ export const Payment = () => {
                       !detailOrder.length ? <p className='menu-pembayaran'>{detailOrder.total_price}</p> : null
                     }
                   </div>
-
-                    <Link to={`/payment-complete/${id}`}>
-                      <button className='menu-pembayaran btn btn-success w-100'>Bayar</button>
-                    </Link>
+                    {
+                      bayar ?
+                      <Link onClick={handleBayar} to={`/payment-complete/${id}`}>
+                        <button  className='menu-pembayaran btn btn-success w-100'>Bayar</button> 
+                      </Link> : 
+                        <button onClick={handleBank}  className='menu-pembayaran-1 btn btn-success w-100'>Pilih Bank Transfer</button> 
+                    }
+                    
 
                 </div>
               </div>

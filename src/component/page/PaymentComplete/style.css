@@ -85,10 +85,20 @@
 .kotak-pembayaran {
     padding: 10px;
 }
+.kotak-pembayaran .perhatian {
+    color: red;
+    border-bottom: 2px solid red;
+}
 .menu-pembayaran {
     font-size: 14px;
     font-weight: 700;
     line-height: 20px;
+}
+.menu-pembayaran-1 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    background-color: rgb(6, 63, 6);
 }
 .desk-bank:hover {
     border-bottom: 2px solid black
