@@ -90,6 +90,9 @@
     font-weight: 700;
     line-height: 20px;
 }
+.desk-bank:hover {
+    border-bottom: 2px solid black
+}
 .desk-menu-pembayaran {
     font-size: 14px;
     font-weight: 400;
@@ -105,6 +108,9 @@
     padding: 3px 20px 3px 20px;
     border: 1px solid #D0D0D0;
     border-radius: 4px;
+}
+.tipe-bank .bni-bank:hover{
+    background-color: lightblue;
 }
 .tipe-bank .ceklist {
     width: 20px;
