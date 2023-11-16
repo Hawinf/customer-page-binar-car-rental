@@ -17,17 +17,21 @@ const Detail = () => {
   
   const[detail, setDetail] = useState({});
   const [topembayaran, setToPembayaran] = useState(false);
+  const [calendarClick, setCalendarClick] = useState(false);
   let {id} = useParams();
 
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   // console.log(startDate, endDate)
 
-  const [buttonDisabled, setButtonDisabled] = useState(true)
+  // const disabled = () => {
+  //   setCalendarClick(true);
+  // }
 
   const navigate = useNavigate()
  
   const handleCalendar = () => {
+    // setCalendarClick(false);
     const token = localStorage.getItem('token');
     const config = {
       headers: {
@@ -47,6 +51,8 @@ const Detail = () => {
         // console.log(res)
         navigate(`/payment/${res.data.id}`)
         // localStorage.setItem('token', res.data.access_token)
+        // localStorage.setItem('startDate1', res.data.start_rent_at);
+        // localStorage.setItem('endDate1', res.data.finish_rent_at)
       })
       .catch((err) => console.log(err.message))
   }
@@ -141,7 +147,7 @@ const Detail = () => {
 
                    {/* Dibawah ini calender */}
 
-                      <DatePicker className='w-100' onClick={handleCalendar}
+                      <DatePicker className='w-100' 
                         selectsRange={true}
                         startDate={startDate}
                         endDate={endDate}
@@ -150,7 +156,7 @@ const Detail = () => {
                         }}
                         isClearable={true}
                         placeholderText='Pilih tanggal mulai dan tanggal akhir sewa'
-                        
+                        // onClick={disabled}
                       />
 
                       <div className='pb-5 d-flex harga'>
@@ -159,7 +165,7 @@ const Detail = () => {
                       </div>
 
                       <div>
-                          <button className='btn btn-success w-100 payment-btn' onClick={handleCalendar}>
+                          <button  className='btn btn-success w-100 payment-btn' onClick={handleCalendar}>
                             Lanjutkan Pembayaran
                           </button>
                       </div>

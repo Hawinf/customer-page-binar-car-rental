@@ -8,21 +8,34 @@ import Footer from '../HomePage/footer';
 import './style.css'
 import axios from 'axios';
 import { useEffect } from 'react';
-// import mo
+import moment from 'moment';
+
 
 export const Payment = () => {
     const [detail, setDetail] = useState({});
     const [detailOrder, setDetailOrder] = useState({});
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [bca, setBca] = useState(false);
     const [bri, setBri] = useState(false);
     const [bni, setBni] = useState(false);
     const [bayar, setBayar] = useState(false);
     const [pilihBank, setPilihBank] = useState(false);
     const {id} = useParams()
-    
 
-    console.log(id, 'ini order id')
-    console.log(detail, 'ini detail')
+    const momentDate = moment(startDate);
+    const formattedDate = momentDate.format('DD-MM-YYYY');
+
+    const momentDate1 = moment(endDate);
+    const formattedDate1 = momentDate1.format('DD-MM-YYYY');
+
+    // const momentStartDate = Moment(startDate);
+    // const formattedDate = momentStartDate.format('YYYY-MM-DD');
+
+    // const startDate = Moment(localStorage.getItem('startDate1'));
+    // const endDate = Moment(localStorage.getItem('endDate1'));
+    // console.log(startDate, endDate, 'ini start and end')
+    // console.log(startDate, endDate, 'start and end')
 
     const handleBca = () => {
       setBca(true);
@@ -58,6 +71,7 @@ export const Payment = () => {
     }
 
     useEffect(() => {
+      // setDetailOrder(moment(detailOrder));
       // getDetailOrder();
       const token = localStorage.getItem('token');
 
@@ -70,9 +84,12 @@ export const Payment = () => {
       axios
             .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
             .then((res) => {
-                console.log(res.data)
-                setDetail(res.data.Car)
-                setDetailOrder(res.data)
+                // console.log(res.data);
+                setDetail(res.data.Car);
+                setDetailOrder(res.data);
+                setStartDate(res.data.start_rent_at);
+                setEndDate(res.data.finish_rent_at);
+                console.log(res.data.start_rent_at, 'kiristart, kananend', res.data.finish_rent_at)
             })
             .catch((err) => console.log(err.message))
 
@@ -146,14 +163,17 @@ export const Payment = () => {
                     <div className='col-lg-3 col-md-6'>
                       <div className='tanggal-mulai'>
                         <p className='judul-detail-mobil'>Tanggal Mulai Sewa</p>
-                        <p className='deskripsi-detail-mobil'>{detailOrder.start_rent_at}</p>
+                        {/* <p className='deskripsi-detail-mobil'>{detailOrder.start_rent_at}</p> */}
+                        {/* <p>{startDate ? startDate : 'no date selected'}</p> */}
+                        <p className='deskripsi-detail-mobil'>{formattedDate}</p>
                       </div>
                     </div>
 
                     <div className='col-lg-3 col-md-6'>
                       <div className='tanggal-akhir'>
                         <p className='judul-detail-mobil'>Tanggal Akhir Sewa</p>
-                        <p className='deskripsi-detail-mobil'>{detailOrder.finish_rent_at}</p>
+                        {/* <p className='deskripsi-detail-mobil'>{detailOrder.finish_rent_at}</p> */}
+                        <p className='deskripsi-detail-mobil'>{formattedDate1}</p>
                       </div>
                     </div>
 
