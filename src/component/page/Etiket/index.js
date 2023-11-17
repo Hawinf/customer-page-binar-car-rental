@@ -67,7 +67,7 @@ export const EtiketPage = () => {
                         <div className='pembungkus-berhasil'>
                             <div className='judul-invoice'>
                                 <h5 className='invoice-1'>Invoice</h5>
-                                <p className='invoice-2'>*no invoice</p>
+                                <p className='invoice-2'>*{id}</p>
                             </div>
                             <div className='unduh'>
                                 <img src={FiDownload} className='logo-unduh'/>
@@ -76,7 +76,7 @@ export const EtiketPage = () => {
                         </div>
 
                         <div className='download-buktitf'>
-                            <img src={prove} />
+                            <img className='prove' src={prove} />
                         </div>
                     </div>
                 </div>
