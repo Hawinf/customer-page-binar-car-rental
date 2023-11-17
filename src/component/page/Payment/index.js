@@ -102,7 +102,7 @@ const PaymentCustomer = () => {
         axios
               .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
               .then((res) => {
-                //   console.log(res.data.total_price);
+                  console.log(res);
                   setTotalPrice(res.data.total_price)
               })
               .catch((err) => console.log(err.message))

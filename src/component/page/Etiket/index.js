@@ -8,8 +8,15 @@ import FiDownload from '../fi_download.png'
 import Success from '../success.png'
 import Rectangle38 from '../Rectangle38.png'
 import './style.css'
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 export const EtiketPage = () => {
+    const {id} = useParams();
+    console.log(id, 'ini ordeer id');
+
+
     const prove = localStorage.getItem('prove')
     console.log(prove)
   return (
@@ -20,11 +27,13 @@ export const EtiketPage = () => {
                 <div className='wrapper-etiket'>
                     <div className='wrapper-kiri'>
                         <div className='baris-1'>
-                            <img className='back-sign' src={BackSign} />
+                            <Link href={`/payment-complete/${id}`}>
+                                <img className='back-sign' src={BackSign} />
+                            </Link>
                         </div>
                         <div className='baris-2'>
                             <h5 className='judul-tiket'>Tiket</h5>
-                            <p className='order-id'>Order ID</p>
+                            <p className='order-id'>Order ID : {id}</p>
                         </div>
                     </div>
                     <div className='wrapper-kanan'>

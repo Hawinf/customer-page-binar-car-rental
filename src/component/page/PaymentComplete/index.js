@@ -29,9 +29,9 @@ export const Payment = () => {
     const momentDate1 = moment(endDate);
     const formattedDate1 = momentDate1.format('DD-MM-YYYY');
 
-    const total = localStorage.getItem('perhari');
-    const totalFormat = total.toLocaleString("en-US");
-    console.log(totalFormat, 'ini perhari bos');
+    // const total = localStorage.getItem('perhari');
+    // const totalFormat = total.toLocaleString("en-US");
+    // console.log(totalFormat, 'ini perhari bos');
 
     const handleBca = () => {
       setBca(true);
