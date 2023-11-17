@@ -21,7 +21,7 @@ export const Payment = () => {
     const [bni, setBni] = useState(false);
     const [bayar, setBayar] = useState(false);
     const [pilihBank, setPilihBank] = useState(false);
-    const {id} = useParams()
+    const {id} = useParams();
 
     const momentDate = moment(startDate);
     const formattedDate = momentDate.format('DD-MM-YYYY');
@@ -29,13 +29,9 @@ export const Payment = () => {
     const momentDate1 = moment(endDate);
     const formattedDate1 = momentDate1.format('DD-MM-YYYY');
 
-    // const momentStartDate = Moment(startDate);
-    // const formattedDate = momentStartDate.format('YYYY-MM-DD');
-
-    // const startDate = Moment(localStorage.getItem('startDate1'));
-    // const endDate = Moment(localStorage.getItem('endDate1'));
-    // console.log(startDate, endDate, 'ini start and end')
-    // console.log(startDate, endDate, 'start and end')
+    const total = localStorage.getItem('perhari');
+    const totalFormat = total.toLocaleString("en-US");
+    console.log(totalFormat, 'ini perhari bos');
 
     const handleBca = () => {
       setBca(true);
@@ -84,12 +80,12 @@ export const Payment = () => {
       axios
             .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
             .then((res) => {
-                // console.log(res.data);
+                console.log(res.data.Car);
                 setDetail(res.data.Car);
                 setDetailOrder(res.data);
                 setStartDate(res.data.start_rent_at);
                 setEndDate(res.data.finish_rent_at);
-                console.log(res.data.start_rent_at, 'kiristart, kananend', res.data.finish_rent_at)
+                localStorage.setItem('perhari', res.data.Car.price)
             })
             .catch((err) => console.log(err.message))
 
@@ -163,8 +159,6 @@ export const Payment = () => {
                     <div className='col-lg-3 col-md-6'>
                       <div className='tanggal-mulai'>
                         <p className='judul-detail-mobil'>Tanggal Mulai Sewa</p>
-                        {/* <p className='deskripsi-detail-mobil'>{detailOrder.start_rent_at}</p> */}
-                        {/* <p>{startDate ? startDate : 'no date selected'}</p> */}
                         <p className='deskripsi-detail-mobil'>{formattedDate}</p>
                       </div>
                     </div>
@@ -172,7 +166,6 @@ export const Payment = () => {
                     <div className='col-lg-3 col-md-6'>
                       <div className='tanggal-akhir'>
                         <p className='judul-detail-mobil'>Tanggal Akhir Sewa</p>
-                        {/* <p className='deskripsi-detail-mobil'>{detailOrder.finish_rent_at}</p> */}
                         <p className='deskripsi-detail-mobil'>{formattedDate1}</p>
                       </div>
                     </div>
@@ -242,6 +235,7 @@ export const Payment = () => {
                   
                   <div className='deskripsi-total'>
                       <p>Total</p>
+                      {/* <h1>Rp. {detail.price.toLocaleString().replace(/,/g, ".")} / Hari</h1> */}
                       {
                         !detailOrder.length ? <p className='menu-pembayaran'>{detailOrder.total_price}</p> : null
                       }
@@ -249,7 +243,7 @@ export const Payment = () => {
                   <p className='menu-pembayaran'>Harga</p>
                   <div className='deskripsi-total'>
                     {
-                      !detail.length ? <p className='desk-menu-pembayaran'>Sewa Mobil {detail.price} x Total Hari Sewa</p> : null
+                      !detail.length ? <p className='desk-menu-pembayaran'>Sewa Mobil {detail.price}  x Total Hari Sewa</p> : null
                     }
                     
                     {

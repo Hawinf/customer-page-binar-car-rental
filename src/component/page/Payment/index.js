@@ -29,26 +29,6 @@ const PaymentCustomer = () => {
         setFile(e.target.files[0]);
     }
 
-    // const handleUpload = () => {
-
-    //     const token = localStorage.getItem('token');
-    //         const config = {
-    //             header: {
-    //                 access_token: token,
-    //             },
-    //     };
-
-    //     const formData = new FormData();
-    //         formData.append('slip', file)
-
-    //     axios
-    //         .put(`https://api-car-rental.binaracademy.org/customer/order/${id}/slip`, config, formData)
-    //         .then((res) => {
-    //             console.log(res)
-    //         })
-    //         .catch((err) => console.log(err))
-    // }
-    // start
     const handleUpload = () => {
         const config = {
           headers: {
@@ -88,6 +68,23 @@ const PaymentCustomer = () => {
           return <span>{hours}:{minutes}:{seconds}</span>;
         }
       };
+
+      const currentDay = new Date();
+      const year = currentDay.getFullYear();
+      const month = currentDay.getMonth() + 1;
+      const day = currentDay.getDate();
+      const getFulldetail = day + '-' + month + '-' + year
+
+    //   const timeZone = currentDay.getTimezoneOffset();
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const hours = currentDay.getHours();
+      const minutes = currentDay.getMinutes();
+      const seconds = currentDay.getSeconds();
+      const getFullHour = hours + 1 + ':' + minutes
+    //   console.log(timeZone, 'ini time zone', timeZone)
+
+    //   console.log("Current time: " + hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds);
+
 
     
   return (
@@ -132,7 +129,7 @@ const PaymentCustomer = () => {
                                     <div className='kelas-pembayaran'>
                                         <div className='bagian1-kelas-pembayaran'>
                                             <p className='judul'>Lakukan Pembayaran Sebelum</p>
-                                            <p className='judul-1'>Rabu, 19 Mei 2022 jam 13.00 WIB</p>
+                                            <p className='judul-1'>{getFulldetail} {getFullHour} {timeZone} </p>
                                         </div>
                                         <div className='bagian2-kelas-pembayaran'>
                                         <Countdown
