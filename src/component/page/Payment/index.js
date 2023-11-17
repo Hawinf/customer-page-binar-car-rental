@@ -18,6 +18,9 @@ const PaymentCustomer = () => {
     const [file, setFile] = useState(null);
     const {id} = useParams();
     const Navigate = useNavigate();
+
+    const [bca, setBca] = useState(false);
+    const [mBca, setMbca] = useState(false);
     
     const [confirm, setConfirm] = useState(false);
     const navigate = useNavigate()
@@ -106,6 +109,14 @@ const PaymentCustomer = () => {
   
       },[])
 
+      const handleBca = () => {
+        setBca(true)
+        setMbca(false)
+      }
+      const handleMbca = () => {
+        setMbca(true);
+        setBca(false)
+      }
     
   return (
         <div>
@@ -194,13 +205,28 @@ const PaymentCustomer = () => {
                                     <div className='instruksi-pembayaran'>
                                         <h5 className='upside'>Instruksi Pembayaran</h5>
                                         <div className='cara2pembayaran'>
-                                            <p className='cara-1'>ATM BCA</p>
-                                            <p className='cara-2'>M-BCA</p>
-                                            <p className='cara-2'>BCA Klik</p>
-                                            <p className='cara-2'>Internet Banking</p>
+                                            <p onClick={handleBca} className='cara-1'>ATM BCA</p>
+                                            <p onClick={handleMbca} className='cara-2'>M-BCA</p>
+                                            <p onClick={handleBca} className='cara-2'>BCA Klik</p>
+                                            <p onClick={handleMbca} className='cara-2'>Internet Banking</p>
                                         </div>
-                                        <p className='langkahpembayaran'>Masukan kartu ATM, lalu PIN</p>
-                                        <p className='langkahpembayaran'>Pilih menu kemudian transfer </p><p className='langkahpembayaran'>Lakukan saja apa yang anda lakukan</p><p className='langkahpembayaran'>Sekarepmu dewe</p>
+                                        {
+                                            bca ? 
+                                                <>
+                                                    <p className='langkahpembayaran'>Buka Aplikasi atau Situs Perbankan</p>
+                                                    <p className='langkahpembayaran'>Login ke Akun Anda</p><p className='langkahpembayaran'>Pilih Layanan Transfer</p><p className='langkahpembayaran'>Pilih Rekening Tujuan</p>
+                                                </>
+                                            : null
+                                        }
+                                        {
+                                            mBca ? 
+                                                <>
+                                                    <p className='langkahpembayaran'>Masukan kartu ATM, lalu PIN M-BCA Anda </p>
+                                                    <p className='langkahpembayaran'>Pilih menu kemudian transfer </p><p className='langkahpembayaran'>Lakukan saja apa yang anda lakukan</p><p className='langkahpembayaran'>Sekarepmu dewe</p>
+                                                </>
+                                            : null
+                                        }
+                                        
                                     </div>
                                 </div>
 
