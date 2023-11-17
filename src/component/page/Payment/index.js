@@ -14,6 +14,7 @@ import axios from 'axios';
 
 const PaymentCustomer = () => {
     // Navigate = useNavigate();
+    const [totalPrice, setTotalPrice] = useState(null);
     const [file, setFile] = useState(null);
     const {id} = useParams();
     const Navigate = useNavigate();
@@ -84,7 +85,26 @@ const PaymentCustomer = () => {
     //   console.log(timeZone, 'ini time zone', timeZone)
 
     //   console.log("Current time: " + hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds);
-
+    useEffect(() => {
+        // setDetailOrder(moment(detailOrder));
+        // getDetailOrder();
+        const token = localStorage.getItem('token');
+  
+        const config = {
+          headers: {
+              access_token: token,
+          }
+        }
+  
+        axios
+              .get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config)
+              .then((res) => {
+                //   console.log(res.data.total_price);
+                  setTotalPrice(res.data.total_price)
+              })
+              .catch((err) => console.log(err.message))
+  
+      },[])
 
     
   return (
@@ -163,7 +183,7 @@ const PaymentCustomer = () => {
 
                                             <p className='title'>Total Bayar</p>
                                             <div className='copy-thecode'>
-                                                <p className='detail-thecode'>14521</p>
+                                                <p className='detail-thecode'>Rp. {totalPrice}</p>
                                                 <img src={Copy} />
                                             </div>
                                         </div>
